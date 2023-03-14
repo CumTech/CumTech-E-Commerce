@@ -1,5 +1,8 @@
 {
   "expo": {
+    "androidStatusBar": {
+      "translucent": true
+    },
     "name": "CumTech",
     "slug": "CumTech",
     "version": "1.0.0",
@@ -21,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.example.CumTech"
     },
     "web": {
       "favicon": "./assets/favicon.png"
