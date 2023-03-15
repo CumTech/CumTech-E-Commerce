@@ -1,23 +1,15 @@
+import 'react-native-gesture-handler';
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
-import ProfileScreen from "./src/screens/ProfileScreen";
+import { NavigationContainer } from '@react-navigation/native';
+import NavigationStack from './src/navigation/NavigationStack';
+import NavigationTab from './src/navigation/NavigationTab';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.udavdcuaydayvdauyasvhkdsvc to start working on your app!</Text>
-      <StatusBar style="auto" />
-      <ProfileScreen />
-    </View>
+    <NavigationContainer>
+      <NavigationTab />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFF7ED',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
