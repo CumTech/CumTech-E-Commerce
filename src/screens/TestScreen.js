@@ -4,13 +4,7 @@ import React from 'react'
 export default function TestScreen() {
   return (
     <View>
-      <Text>TestScreen</Text>
-      <Text>TestScreen</Text>
-      <Text>TestScreen</Text>
-      <Text>TestScreen</Text>
-      <Text>TestScreen</Text>
-      <Text>TestScreen</Text>
-      <Text>TestScreen</Text>
+      <Text>Esta screen es solo para agregar la carpeta screens, no mover nada, se borrara a la finalizacion del proyecto</Text>
     </View>
   )
 }
