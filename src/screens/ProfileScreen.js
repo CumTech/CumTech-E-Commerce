@@ -65,15 +65,15 @@ export default function ProfileScreen(props) {
                 </LinearGradient>
                 
             </View>
-            <View style={styles.singOutContainer}>
+            <View style={styles.signOutContainer}>
                 <LinearGradient
                 colors={['#F77019', '#FAD25C']}
-                style={ styles.singOutBG}
+                style={ styles.signOutBG}
                 start={{ x: 0, y: 1 }}
                 end={{ x: 0, y: 0 }}
                 >
-                    <TouchableOpacity style={styles.singOutButton} onPress={() => navigation.navigate('Login')}>
-                        <Text style={styles.singOutText}>Sing Out</Text>
+                    <TouchableOpacity style={styles.signOutButton} onPress={() => navigation.navigate('Login')}>
+                        <Text style={styles.signOutText}>Sign Out</Text>
                     </TouchableOpacity>
                 </LinearGradient>
             </View>
@@ -215,25 +215,25 @@ const styles = StyleSheet.create({
         height: '100%',
         borderRadius: 15,
     },
-    singOutContainer: {
+    signOutContainer: {
         height: 60,
         alignItems: 'center',
         justifyContent: 'center',
     },
-    singOutBG: {
+    signOutBG: {
         width: 100,
         height: 33,
         borderRadius: 10,
         elevation: 4,
     },
-    singOutButton: {
+    signOutButton: {
         width: 100,
         height: 33,
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
     },
-    singOutText: {
+    signOutText: {
         // fontFamily: 'Inter',
         fontStyle: 'normal',
         fontWeight: 'normal',
