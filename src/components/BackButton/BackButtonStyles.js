@@ -1,10 +1,17 @@
 const styles = {
-
-    titulo: {
-      fontSize: 24,
-      fontWeight: 'bold',
-      marginBottom: 10,
-    },
+  gradient: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  button: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: 'white',
+  },
     texto: {
       fontSize: 18,
       color: '#333', 
@@ -19,14 +26,7 @@ const styles = {
       alignItems: 'center',
       
     },
-    gradient: {
-      flex: undefined,
-      borderRadius:5, 
-      marginEnd: 20,
-      marginStart:5,
-      marginBottom: 7,
-      elevation:6,
-    },
+    
     arrow: {
       width: 50,
       height: '100%',

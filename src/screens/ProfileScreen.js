@@ -1,15 +1,13 @@
-import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Button, Image } from 'react-native'
 import SafeAreaAndroid from '../components/SafeViewAndroid';
 import BackBotton from '../components/BackButton/BackButton';
 import UserBotton from '../components/UserButton/UserButton';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
 
 export default function ProfileScreen(props) {
-    const { navigation } = props;
-    const goToTest = () => {
-        navigation.navigate("Test");
-    }
+    const navigation = useNavigation();
     return (
         <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
         <View style={styles.container}>
@@ -17,16 +15,17 @@ export default function ProfileScreen(props) {
                 <View style={styles.buttonBackContainer}>
                     <BackBotton style={styles.buttonBack}/>
                 </View>
-                <View style={styles.titleContainer}>
-                    <Text style={styles.title}>Hello!</Text>
-                </View>
+                <Text style={styles.title}>Hello!</Text>
             </View>
             <View style={styles.pfpImagesContainer}>
-                <View style={styles.coverImage}></View>
-                <View style={styles.profileImage}></View>
+                <View style={styles.coverImageContainer}>
+                    <Image resizeMode="contain" style={styles.coverImage} source={require('../../assets/images/cover.png')} />
+                </View>
+                <View style={styles.profileImage}>
+                    <Image resizeMode="contain" style={styles.pfpImage} source={require('../../assets/images/pfp.png')} />
+                </View>
             </View>
             <View style={styles.buttonsProfileContainer}>
-                
                     <View style={styles.buttonsProfileFirstRow}>
                         <UserBotton style={styles.userButton1} />
                         <UserBotton style={styles.userButton2} />
@@ -35,22 +34,48 @@ export default function ProfileScreen(props) {
                         <UserBotton style={styles.userButton1} />
                         <UserBotton style={styles.userButton2} />
                     </View>
-                
             </View>
             <View style={styles.orderDetailsContainer}>
                 <LinearGradient 
                 colors={['#FFFFFF', '#FFF7ED']}
-                style={ styles.gradient}
+                style={ styles.orderDetailsBG}
                 start={{ x: 0, y: 1 }}
                 end={{ x: 0, y: 0 }}
                 >
-                    <View style={styles.container1}>
-                        <Text>Hola</Text>
+                    <View style={styles.orderDetailsTitle}>
+                        <View style={styles.orderDetailsTitleRight}>
+                            <Text style={styles.orderDetailsTextRight}>My orders</Text>
+                        </View>
+                        <View style={styles.orderDetailsTitleLeft}>
+                            <Text style={styles.orderDetailsTextLeft}>See All</Text>
+                        </View>
+                    </View>
+                    <View style={styles.orderDetailsHistory}>
+                        <View style={styles.orderDetailsLeft}>
+                            <View style={styles.orderDetailsImagenContainer}>
+                                <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/aguacate.png')} />
+                            </View>
+                        </View>
+                        <View style={styles.orderDetailsRight}>
+                            <View style={styles.orderDetailsImagenContainer}>
+                                <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/aguacate.png')} />
+                            </View>
+                        </View>
                     </View>
                 </LinearGradient>
+                
             </View>
             <View style={styles.singOutContainer}>
-                <Text style={styles.singOutText}>Sing Out</Text>
+                <LinearGradient
+                colors={['#F77019', '#FAD25C']}
+                style={ styles.singOutBG}
+                start={{ x: 0, y: 1 }}
+                end={{ x: 0, y: 0 }}
+                >
+                    <TouchableOpacity style={styles.singOutButton} onPress={() => navigation.navigate('Login')}>
+                        <Text style={styles.singOutText}>Sing Out</Text>
+                    </TouchableOpacity>
+                </LinearGradient>
             </View>
         </View>
     </SafeAreaView>
@@ -58,67 +83,66 @@ export default function ProfileScreen(props) {
 }
 
 const styles = StyleSheet.create({
-    gradient: {
-        // flex: undefined,
-        width: '80%',
-        height: 187,
-        borderRadius: 10,
-        elevation: 4,
-    },
-    container1: {
-        
-    },
     container: {
-        flex: 1,
+        height: '100%',
         backgroundColor: '#FFF7ED',
     },
     header: {
-        flex: 0.5,
+        // flex: 0.44,
+        height: 80,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     buttonBackContainer: {
         position: 'absolute',
-        top: 14,
-        left: 22,
+        top: 20,
+        left: 45,
     },
-    titleContainer: {
-        flex: 1,
-        alignItems: 'center',
-        textAlign: 'center',
-    },
-    title: {
+    title: { 
         fontSize: 48,
         fontFamily: 'Roboto',
         fontStyle: 'normal',
         fontWeight: 'bold',
     },
     pfpImagesContainer: {
-        flex: 1.6,
+        height: 280,
+        // flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
+        // backgroundColor: '#FFA433',
+    },
+    coverImageContainer: {
+        width: 361,
+        height: 193,
+        // height: '100%',
+        backgroundColor: '#FAFA',
+        borderRadius: 15,
     },
     coverImage: {
-        width: '90%',
-        // height: 147,
-        height: '63%',
-        justifyContent: 'center',
-        top: '3%',
-        backgroundColor: '#FAFA',
+        width: '100%',
+        height: '100%',
         borderRadius: 15,
     },
     profileImage: {
         position: 'absolute',
-        width: 150,
-        height: 150,
-        left: '8%',
-        top: '35%',
-        borderRadius: 100,
+        width: 133,
+        height: 133,
+        left: 45,
+        top: 126,
+        borderRadius: 50,
         backgroundColor: '#000000',
     },
-    buttonsProfileContainer: {
-        flex: 0.88,
-        flexDirection: 'row',
+    pfpImage: {
+        width: '100%',
+        height: '100%',
+        borderRadius: 50,
     },
-
+    buttonsProfileContainer: {
+        // flex: 0.87,
+        height: 135,
+        flexDirection: 'row',
+        // backgroundColor: '#54E26A',
+    },
     buttonsProfileFirstRow: {
         flex: 1,
         marginLeft: '5%',
@@ -133,20 +157,88 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         
     },
-//-----------------------------------------------------------------------//
     orderDetailsContainer: {
-        flex: 1.5,
-        position: 'relative',
-        width: '100%',
-        height: 216,
-        // backgroundColor: '#FaFa34',
-        justifyContent: 'center',
+        height: 211,
+        // flex: 1,
         alignItems: 'center',
     },
-    singOutContainer: {
-        flex: .25,
+    orderDetailsBG: {
+        width: '84%',
+        height: 211,
+        borderRadius: 10,
+        elevation: 4,
+    },
+    orderDetailsTitle: {
+        flex: 0.2,
+        flexDirection: 'row',
+        paddingLeft: '7.3%',
+        paddingRight: '7.3%',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    orderDetailsTextRight: {
+        // fontFamily: 'Cocogoose',
+        fontWeight: 'bold',
+        fontSize: 20,
+        lineHeight: 27,
+        color: '#000000',
+        alignItems: 'flex-start',
+    },
+    orderDetailsTextLeft: {
+        // fontFamily: 'Inter',
+        fontStyle: 'normal',
+        fontSize: 16,
+        color: '#FF9700',
+        alignItems: 'flex-end',
+    },
+    orderDetailsHistory: {
+        flex: 1,
+        flexDirection: 'row',
+    },
+    orderDetailsLeft: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    orderDetailsRight: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    orderDetailsImagenContainer: {
+        width: '80%',
+        height: '70%',
+        borderRadius: 15,
+    },
+    orderDetailsImage: {
         width: '100%',
-        height: '5%',
-        backgroundColor: '#2F20E2',
+        height: '100%',
+        borderRadius: 15,
+    },
+    singOutContainer: {
+        height: 60,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    singOutBG: {
+        width: 100,
+        height: 33,
+        borderRadius: 10,
+        elevation: 4,
+    },
+    singOutButton: {
+        width: 100,
+        height: 33,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    singOutText: {
+        // fontFamily: 'Inter',
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 16,
+        lineHeight: 19,
+        color: 'black',
     },
 });
