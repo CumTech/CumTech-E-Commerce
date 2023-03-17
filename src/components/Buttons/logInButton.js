@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Text, Image, View } from 'react-native';
-import styles from './logInButtonStyles';
+import styles from '../styles/logInButtonStyles';
 import { LinearGradient } from 'expo-linear-gradient';
 
 

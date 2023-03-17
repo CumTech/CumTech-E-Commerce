@@ -11,6 +11,7 @@ export default function NavigationStack() {
     <Tab.Navigator
     screenOptions={{ headerShown: false}}>
         <Tab.Screen name="Payments" component={PaymentsScreen} />
+        <Tab.Screen name="HomeScreen" component={HomeScreen} />
     </Tab.Navigator>
   );
 }

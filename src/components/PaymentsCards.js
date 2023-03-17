@@ -1,13 +1,13 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
 import React from 'react'
-import styles from './PaymentsStyles'
+import styles from './styles/PaymentsStyles'
 
 const PaymentsCards = () => {
   return (
     <View style={styles.tarjetas}>
       <Image
         style={styles.tarjetasI}
-        source={require("../../../assets/images/tarjeta.jpg")}
+        source={require("../../assets/images/tarjeta.jpg")}
       />
     </View>
   )

@@ -3,20 +3,20 @@ import React from 'react';
 import { View, Text, SafeAreaView, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import SafeViewAndroid from '../components/SafeViewAndroid';
 import { ScrollView } from 'react-native';
-import  ProductView  from '../components/ProductHome/Product'
+import  ProductView  from '../components/Products/Product'
 export default function App() {
 
   return (
     <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
       <View style={styles.Head}>
         <View style={styles.Flecha}>
-          <TouchableOpacity style={styles.button} onPress={console.log('boton pusheado')}>
+          <TouchableOpacity style={styles.button}>
           <Text>Flecha</Text>
           </TouchableOpacity>
           </View>
         <View style={styles.Logotipo}><Text style={{fontSize: 48, fontWeight: 'bold', fontWeight: '250'}}>SHOP</Text></View>
         <View style={styles.Carrito}>
-          <TouchableOpacity style={styles.button} onPress={console.log('boton pusheadocarrito')}>
+          <TouchableOpacity style={styles.button}>
           <Image
             style={styles.Carrito}
             source={require("./../../assets/images/Carritochiquito.jpg")}
