@@ -7,7 +7,13 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 
 export default function ProfileScreen(props) {
-    const navigation = useNavigation();
+    
+    const { navigation } = props;
+
+    const goToDetails = () => {
+        navigation.navigate('ProfileDetails');
+    }
+    
     return (
         <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
             <View style={styles.container}>
@@ -27,7 +33,9 @@ export default function ProfileScreen(props) {
                 </View>
                 <View style={styles.buttonsProfileContainer}>
                     <View style={styles.buttonsProfileFirstRow}>
-                        <UserBotton style={styles.userButton1} />
+                        <TouchableOpacity style={styles.goToDetails} onPress={goToDetails}>
+                            <Text style={styles.goToDetailsText}>Profile Details</Text>
+                        </TouchableOpacity>
                         <UserBotton style={styles.userButton2} />
                     </View>
                     <View style={styles.buttonsProfileSecondRow}>
@@ -82,6 +90,24 @@ export default function ProfileScreen(props) {
 }
 
 const styles = StyleSheet.create({
+    goToDetails: {
+        width: 153,
+        height: 40,
+        borderRadius:10,
+        elevation: 4,
+        marginBottom:30,
+        backgroundColor: '#FFFFFF',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    goToDetailsText: {
+        fontSize: 16,
+        fontFamily: 'Roboto',
+        fontStyle: 'normal',
+        fontWeight: 'bold',
+        lineHeight: 19,
+        color: '#000000',
+    },
     container: {
         height: '100%',
         backgroundColor: '#FFF7ED',
