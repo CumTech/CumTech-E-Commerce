@@ -2,7 +2,7 @@ import { StyleSheet, Text, ScrollView,View, TouchableOpacity } from 'react-nativ
 import ProductCart from '../components/ProductCart/ProductWishList'
 import BackButton from '../components/BackButton/BackButton';
 
-export default function App(props) {
+export default function WishListScreen(props) {
   const { navigation } = props;
 
   const goToDetails = () => {
@@ -30,9 +30,7 @@ export default function App(props) {
 
       </ScrollView>
       
-      </View>
-      
-      
+    </View>
   );
 }
 const styles = StyleSheet.create({

@@ -4,7 +4,6 @@ import SafeAreaAndroid from '../components/SafeViewAndroid';
 import BackBotton from '../components/BackButton/BackButton';
 import UserBotton from '../components/UserButton/UserButton';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useNavigation } from '@react-navigation/native';
 
 export default function ProfileScreen(props) {
     
