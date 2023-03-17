@@ -23,7 +23,7 @@ export default function App() {
           /> 
           </TouchableOpacity>     
         </View>
-          <View style={styles.contadorcarrito}>
+        <View style={styles.contadorcarrito}>
               <Text>5</Text>
         </View>
       </View>
