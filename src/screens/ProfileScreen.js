@@ -10,22 +10,22 @@ export default function ProfileScreen(props) {
     const navigation = useNavigation();
     return (
         <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
-        <View style={styles.container}>
-            <View style={styles.header}>
-                <View style={styles.buttonBackContainer}>
-                    <BackBotton style={styles.buttonBack}/>
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <View style={styles.buttonBackContainer}>
+                        <BackBotton style={styles.buttonBack}/>
+                    </View>
+                    <Text style={styles.title}>Hello!</Text>
                 </View>
-                <Text style={styles.title}>Hello!</Text>
-            </View>
-            <View style={styles.pfpImagesContainer}>
-                <View style={styles.coverImageContainer}>
-                    <Image resizeMode="contain" style={styles.coverImage} source={require('../../assets/images/cover.png')} />
+                <View style={styles.pfpImagesContainer}>
+                    <View style={styles.coverImageContainer}>
+                        <Image resizeMode="contain" style={styles.coverImage} source={require('../../assets/images/cover.png')} />
+                    </View>
+                    <View style={styles.profileImage}>
+                        <Image resizeMode="contain" style={styles.pfpImage} source={require('../../assets/images/pfp.png')} />
+                    </View>
                 </View>
-                <View style={styles.profileImage}>
-                    <Image resizeMode="contain" style={styles.pfpImage} source={require('../../assets/images/pfp.png')} />
-                </View>
-            </View>
-            <View style={styles.buttonsProfileContainer}>
+                <View style={styles.buttonsProfileContainer}>
                     <View style={styles.buttonsProfileFirstRow}>
                         <UserBotton style={styles.userButton1} />
                         <UserBotton style={styles.userButton2} />
@@ -34,51 +34,50 @@ export default function ProfileScreen(props) {
                         <UserBotton style={styles.userButton1} />
                         <UserBotton style={styles.userButton2} />
                     </View>
-            </View>
-            <View style={styles.orderDetailsContainer}>
-                <LinearGradient 
-                colors={['#FFFFFF', '#FFF7ED']}
-                style={ styles.orderDetailsBG}
-                start={{ x: 0, y: 1 }}
-                end={{ x: 0, y: 0 }}
-                >
-                    <View style={styles.orderDetailsTitle}>
-                        <View style={styles.orderDetailsTitleRight}>
-                            <Text style={styles.orderDetailsTextRight}>My orders</Text>
-                        </View>
-                        <View style={styles.orderDetailsTitleLeft}>
-                            <Text style={styles.orderDetailsTextLeft}>See All</Text>
-                        </View>
-                    </View>
-                    <View style={styles.orderDetailsHistory}>
-                        <View style={styles.orderDetailsLeft}>
-                            <View style={styles.orderDetailsImagenContainer}>
-                                <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/aguacate.png')} />
+                </View>
+                <View style={styles.orderDetailsContainer}>
+                    <LinearGradient 
+                        colors={['#FFFFFF', '#FFF7ED']}
+                        style={ styles.orderDetailsBG}
+                        start={{ x: 0, y: 1 }}
+                        end={{ x: 0, y: 0 }}
+                    >
+                        <View style={styles.orderDetailsTitle}>
+                            <View style={styles.orderDetailsTitleRight}>
+                                <Text style={styles.orderDetailsTextRight}>My orders</Text>
+                            </View>
+                            <View style={styles.orderDetailsTitleLeft}>
+                                <Text style={styles.orderDetailsTextLeft}>See All</Text>
                             </View>
                         </View>
-                        <View style={styles.orderDetailsRight}>
-                            <View style={styles.orderDetailsImagenContainer}>
-                                <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/aguacate.png')} />
+                        <View style={styles.orderDetailsHistory}>
+                            <View style={styles.orderDetailsLeft}>
+                                <View style={styles.orderDetailsImagenContainer}>
+                                    <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/aguacate.png')} />
+                                </View>
+                            </View>
+                            <View style={styles.orderDetailsRight}>
+                                <View style={styles.orderDetailsImagenContainer}>
+                                    <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/aguacate.png')} />
+                                </View>
                             </View>
                         </View>
-                    </View>
-                </LinearGradient>
-                
+                    </LinearGradient>
+                </View>
+                <View style={styles.signOutContainer}>
+                    <LinearGradient
+                        colors={['#F77019', '#FAD25C']}
+                        style={ styles.signOutBG}
+                        start={{ x: 0, y: 1 }}
+                        end={{ x: 0, y: 0 }}
+                    >
+                        <TouchableOpacity style={styles.signOutButton} onPress={() => navigation.navigate('Login')}>
+                            <Text style={styles.signOutText}>Sign Out</Text>
+                        </TouchableOpacity>
+                    </LinearGradient>
+                </View>
             </View>
-            <View style={styles.signOutContainer}>
-                <LinearGradient
-                colors={['#F77019', '#FAD25C']}
-                style={ styles.signOutBG}
-                start={{ x: 0, y: 1 }}
-                end={{ x: 0, y: 0 }}
-                >
-                    <TouchableOpacity style={styles.signOutButton} onPress={() => navigation.navigate('Login')}>
-                        <Text style={styles.signOutText}>Sign Out</Text>
-                    </TouchableOpacity>
-                </LinearGradient>
-            </View>
-        </View>
-    </SafeAreaView>
+        </SafeAreaView>
     )
 }
 

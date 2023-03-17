@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TestScreen from '../screens/TestScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 
-const Stack = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function NavigationStack() {
     return (
