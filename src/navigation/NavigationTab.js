@@ -14,7 +14,9 @@ const Tab = createBottomTabNavigator();
 
 export default function NavigationStack() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+    screenOptions={{ headerShown: false }}
+    >
       <Tab.Screen name="LogIn" component={LogInScreen} />
       <Tab.Screen name="Register" component={RegisterScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
