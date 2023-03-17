@@ -22,7 +22,7 @@ const styles = {
     gradient: {
       flex: undefined,
       borderRadius:24, 
-      marginEnd: 20,
+      marginEnd: '15%',
       marginStart:5,
       marginBottom: 7,
       elevation:6,
