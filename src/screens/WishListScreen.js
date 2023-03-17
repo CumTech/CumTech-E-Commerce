@@ -1,6 +1,6 @@
 import { StyleSheet, Text, ScrollView,View, TouchableOpacity } from 'react-native';
-import ProductCart from '../components/ProductCart/ProductWishList'
-import BackButton from '../components/BackButton/BackButton';
+import ProductCart from '../components/Products/ProductWishList'
+import BackButton from '../components/Buttons/BackButton';
 
 export default function WishListScreen(props) {
   const { navigation } = props;

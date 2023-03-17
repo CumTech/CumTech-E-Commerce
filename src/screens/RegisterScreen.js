@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
-import LogInButton from '../components/LogInButton/logInButton';
+import LogInButton from '../components/Buttons/logInButton';
 import * as Font from 'expo-font';
 import React, { useState, useEffect } from 'react';
 

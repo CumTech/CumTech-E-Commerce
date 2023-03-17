@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Button, Image } from 'react-native'
 import SafeAreaAndroid from '../components/SafeViewAndroid';
-import BackBotton from '../components/BackButton/BackButton';
-import UserBotton from '../components/UserButton/UserButton';
+import BackBotton from '../components/Buttons/BackButton';
+import UserBotton from '../components/Buttons/UserButton';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default function ProfileScreen(props) {

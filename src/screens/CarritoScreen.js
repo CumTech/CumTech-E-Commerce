@@ -1,6 +1,6 @@
 import { StyleSheet, Text, ScrollView,View, TouchableOpacity, LinearGradient } from 'react-native';
-import ProductCart from '../components/ProductCart/ProductCart.js'
-import BackButton from '../components/BackButton/BackButton.js';
+import ProductCart from '../components/Products/ProductCart.js'
+import BackButton from '../components/Buttons/BackButton.js';
 export default function App(props) {
   const { navigation } = props;
 
