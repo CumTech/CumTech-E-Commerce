@@ -1,12 +1,16 @@
-import { StyleSheet, Text, ScrollView,View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, ScrollView,View, TouchableOpacity, LinearGradient } from 'react-native';
 import ProductCart from '../components/ProductCart/ProductCart.js'
-export default function App() {
+import BackButton from '../components/BackButton/BackButton.js';
+export default function App(props) {
+  const { navigation } = props;
+
+    const goToDetails = () => {
+        navigation.navigate('WishList');
+    }
   return (
     <View style={[styles.container,{}]}>
       <View style = {[styles.bottom,{}]}>
-        <TouchableOpacity style={{width: 50, height: 50, marginTop: 10, backgroundColor: 'orange', borderRadius: 10, alignItems: 'center',justifyContent: 'center',   elevation:5}}>
-          <Text>back</Text>
-        </TouchableOpacity>
+       <BackButton/>
         <View style={styles.tittle}>
         <Text style = {{fontSize: 48, marginTop: -3}}>CART</Text>
         </View>
@@ -16,6 +20,7 @@ export default function App() {
       <ProductCart/>
       <ProductCart/>
       <ProductCart/>
+      
 
       </ScrollView>
       <View style = {[styles.down, {backgroundColor: 'white', borderRadius: 10, elevation: 4}]}>
@@ -28,8 +33,14 @@ export default function App() {
           <Text style = {{marginLeft: 40}}>1005</Text>
         </View>
         <View style = {[styles.texts, {flex :1 , margin: 10}]}>
+
+    
             <TouchableOpacity style={[styles.downbut,{height: 50, elevation: 4}]}>
               <Text>USD$19.99</Text>
+            </TouchableOpacity>
+            
+            <TouchableOpacity style={styles.goToDetails} onPress={goToDetails}>
+                            <Text style={styles.goToDetailsText}>WishList</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={[styles.downbut, {height: 30, marginTop: 30, elevation: 4}]}>

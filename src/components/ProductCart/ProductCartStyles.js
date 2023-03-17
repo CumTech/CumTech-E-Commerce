@@ -47,6 +47,7 @@ const styles = {
     flexDirection:'row',
     width:'80%',
     marginBottom: 10,
+
   }
 }
 
