@@ -7,6 +7,8 @@ import ProfileDetailsScreen from '../screens/ProfileDetailsScreen';
 import CarritoScreen from '../screens/CarritoScreen';
 import WishListScreen from '../screens/WishListScreen';
 import TestScreen from '../screens/TestScreen';
+import HomeScreen from '../screens/HomeScreen'
+import PaymentsScreen from '../screens/PaymentsScreen';
 
 
 
@@ -15,8 +17,10 @@ const Tab = createBottomTabNavigator();
 export default function NavigationStack() {
   return (
     <Tab.Navigator
-    screenOptions={{ headerShown: false }}
-    >
+
+    screenOptions={{ headerShown: false}}>
+       <Tab.Screen name="Payments" component={PaymentsScreen} />
+       <Tab.Screen name="HomeScreen" component={HomeScreen} />
       <Tab.Screen name="LogIn" component={LogInScreen} />
       <Tab.Screen name="Register" component={RegisterScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
