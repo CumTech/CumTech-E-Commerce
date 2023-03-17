@@ -14,14 +14,12 @@ const Tab = createBottomTabNavigator();
 
 export default function NavigationStack() {
   return (
-    <Tab.Navigator 
-      screenOptions={{ headerShown: false}} 
-      initialRouteName="LogIn"
-    >
+    <Tab.Navigator>
       <Tab.Screen name="LogIn" component={LogInScreen} />
       <Tab.Screen name="Register" component={RegisterScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
-      <Tab.Screen name="ProfileDetails" component={ProfileDetailsScreen} />        <Tab.Screen name="Carrito" component={CarritoScreen} />
+      <Tab.Screen name="ProfileDetails" component={ProfileDetailsScreen} /> 
+      <Tab.Screen name="Carrito" component={CarritoScreen} />
       <Tab.Screen name="WishList" component={WishListScreen} />
       <Tab.Screen name="Test" component={TestScreen} />
     </Tab.Navigator>

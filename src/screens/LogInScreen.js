@@ -26,17 +26,6 @@ export default function App() {
     
 
     <View style={styles.container}>
-      <Stack.Navigator>
-      <Stack.Screen 
-        name="ScreenWithTabBar" 
-        component={ScreenWithTabBar} 
-      />
-      <Stack.Screen 
-        name="ScreenWithNoTabBar" 
-        component={ScreenWithNoTabBar} 
-        options={{ headerShown: false }} // Ocultar la barra de navegación
-      />
-    </Stack.Navigator>
       <ImageBackground source={require('../../assets/images/BgLogIn.png')} style={{ flex: 1 }}>
       <View style={styles.topContainer}>
         <Text style={[{fontSize:48, marginBottom:3,}]}>CumTech</Text>

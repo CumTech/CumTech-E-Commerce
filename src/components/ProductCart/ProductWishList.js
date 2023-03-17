@@ -1,8 +1,8 @@
 import {  Text, View, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import styles from './ProductWishListStyles';
-import CancelButton from '../BackButton/CancelButton';
-import AddCartButton from '../BackButton/AddCart';
+// import CancelButton from '../BackButton/CancelButton';
+// import AddCartButton from '../BackButton/AddCart';
 
 const ProductCart = () => {
   return (
@@ -21,8 +21,8 @@ const ProductCart = () => {
             </View>
 
             <View style ={[styles.buttoms]}>
-           <CancelButton/>
-           <AddCartButton/>
+           {/* <CancelButton/>
+           <AddCartButton/> */}
             </View>
 
           </View>
