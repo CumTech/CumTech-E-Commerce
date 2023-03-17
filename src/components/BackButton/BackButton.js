@@ -5,7 +5,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 const BackButton = () => {
   const navigation = useNavigation();
-
   const handlePress = () => {
     console.log('Back button pressed');
   };
