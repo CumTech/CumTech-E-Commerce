@@ -7,29 +7,13 @@ import { ImageBackground } from 'react-native';
 
 
 export default function App() {
-  const [fontLoaded, setFontLoaded] = useState(false);
-
-  useEffect(() => {
-    async function loadFonts() {
-      await Font.loadAsync({
-        'coco-goose': require('../../assets/fonts/CocogooseProLight-trial.ttf'), // Font can not have spaces
-      }); 
-      setFontLoaded(true);
-    } 
-    loadFonts();
-  }, []);
-
-  if (!fontLoaded) {
-    return <Text>Loading...</Text>;
-  }
+  
   return (
-    
-
     <View style={styles.container}>
       <ImageBackground source={require('../../assets/images/BgLogIn.png')} style={{ flex: 1 }}>
       <View style={styles.topContainer}>
-        <Text style={[{fontSize:48, marginBottom:3,}]}>CumTech</Text>
-        <Text style={[{fontSize:13, marginBottom:80}]}>Log in to your account</Text>
+        <Text style={[{fontFamily: 'coco-goose',fontSize:48, marginBottom:3,}]}>CumTech</Text>
+        <Text style={[{fontFamily: 'coco-goose',fontSize:13, marginBottom:80}]}>Log in to your account</Text>
         <View>
         <Text style={styles.textInput}>Email</Text>
         <TextInput
@@ -45,17 +29,17 @@ export default function App() {
         //onChangeText={onChangeNumber}
         //value={number}
       />
-            <Text style={[{fontSize:10, alignSelf: 'flex-end', color: '#8f8f8f'}]}>Forgot your password?</Text>
+            <Text style={[{fontFamily: 'coco-goose',fontSize:10, alignSelf: 'flex-end', color: '#8f8f8f'}]}>Forgot your password?</Text>
       </View>
       </View>
       <View style={styles.centerContainer}>
-        <Text style={[{marginBottom:8, fontSize:24, marginRight:5}]}>Log In</Text>
+        <Text style={[{fontFamily: 'coco-goose',marginBottom:8, fontSize:24, marginRight:5}]}>Log In</Text>
         <LogInButton />
       </View>
        <View style={[styles.bottomContainer]}>
-        <Text style={[{ fontSize:16, marginRight:5,}]}>Already have an account?</Text>
+        <Text style={[{fontFamily: 'coco-goose', fontSize:16, marginRight:5,}]}>Already have an account?</Text>
         <TouchableOpacity style={[{marginRight:5,}]} onPress="">
-          <Text style={[{ fontSize:16, marginRight:5,textDecorationLine: 'underline', color: '#ff9700'}]}>Log In</Text>
+          <Text style={[{fontFamily: 'coco-goose', fontSize:16, marginRight:5,textDecorationLine: 'underline', color: '#ff9700'}]}>Log In</Text>
         </TouchableOpacity>
       </View> 
       </ImageBackground>
