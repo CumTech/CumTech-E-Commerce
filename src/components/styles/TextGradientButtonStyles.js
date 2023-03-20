@@ -2,11 +2,18 @@ const styles = {
   container: {
     flex: 1,
     borderRadius: 20,
-    padding: 10,
     elevation: 2,
-    marginHorizontal: '2%'
+    marginHorizontal: '2%',
+    
+  },
+  gradient: {
+    borderRadius: 20,
+    elevation: 2,
+    marginHorizontal: '2%',
+    
   },
   text: {
+    marginVertical: '7%',
     fontSize: 18,
     fontFamily: 'coco-goose',
   },

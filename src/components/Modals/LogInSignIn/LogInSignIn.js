@@ -20,12 +20,12 @@ const LogInSignInModal = ({ visible, onClose }) => {
             <View style={styles.modalContent}>
               
               <TextGradientButton
-              TextContent = 'Sign In'
-              onPress= {onClose}
+                TextContent = 'Sign In'
+                onPress= {onClose}
               />
               <TextGradientButton
-              TextContent = 'Log In'
-              onPress= {onClose}
+                TextContent = 'Log In'
+                onPress= {onClose}
               />
             </View>
           </View>
