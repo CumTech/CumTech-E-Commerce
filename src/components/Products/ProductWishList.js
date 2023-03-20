@@ -1,34 +1,41 @@
 import {  Text, View, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import styles from '../styles/ProductWishListStyles';
-import CancelButton from '../Buttons/QuitButton';
-import AddCartButton from '../Buttons/AddCartWishlist';
+import AddCartWishlistButton from '../Buttons/AddCartWishlistButton';
+import QuitButton from '../Buttons/QuitButton';
+import MinusButton from '../Buttons/MinusButton';
 
 const ProductCart = () => {
-  return (
-    <View style = {styles.product}>
-        <View style = {[styles.imgContainer]}>
-          <Image  style = {[styles.img]}source={require('../../../assets/images/aguacate.png')}/>
-          </View>
-          <View style = {styles.productInformation}>
-            
-            <View style= {[styles.Producttext,{backgroundColor: 'white', borderRadius: 10, margin: 5,  elevation: 4,}]}>
-              <Text>Aguacates</Text>
+    return (
+        <View style = {styles.container}>
+            <View style = {styles.imageProductContainer}>
+                <Image resizeMode="contain" style = {styles.image}source={require('../../../assets/images/aguacate.png')}/>
             </View>
-            
-            <View style ={[styles.price,{backgroundColor: 'white', borderRadius: 10, margin: 5, elevation: 4,}]}>
-              <Text>USD$19.99</Text>
+            <View style = {styles.informationContainer}>
+                <View style={styles.titleProductContainer}>
+                    <View style={styles.titleProductTextContainer}>
+                        <Text style={styles.titleProductText}>Aguacates</Text>
+                    </View>
+                </View>
+                <View style={styles.priceContainer}>
+                    <View style={styles.priceTextContainer}>
+                            <Text style={styles.priceTextDollars}>US$</Text>
+                            <Text style={styles.priceTextNumber}>1.99</Text>
+                    </View>
+                </View>
+                <View style={styles.amountContainer}>
+                    <View style={styles.ButtonsContainer}>
+                        <View style={styles.ButtonMinusContainer}>
+                            <QuitButton/>
+                        </View>
+                        <View style={styles.ButtonAddContainer}>
+                            <AddCartWishlistButton/>
+                        </View>
+                    </View>
+                </View>
             </View>
-
-            <View style ={[styles.buttoms]}>
-           <CancelButton/>
-           <AddCartButton/>
-            </View>
-
-          </View>
-
         </View>
-    )
-}
+    );
+};
 
 export default ProductCart;
