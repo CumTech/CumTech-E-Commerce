@@ -4,13 +4,11 @@ const styles = {
     borderRadius: 20,
     elevation: 2,
     marginHorizontal: '2%',
-    
   },
   gradient: {
     borderRadius: 20,
     elevation: 2,
     marginHorizontal: '2%',
-    
   },
   text: {
     marginVertical: '7%',

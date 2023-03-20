@@ -125,9 +125,7 @@ const styles = StyleSheet.create({
     },
     title: { 
         fontSize: 48,
-        fontFamily: 'Roboto',
-        fontStyle: 'normal',
-        fontWeight: 'bold',
+        fontFamily: 'coco-goose',
     },
 //-------------------------Contenedor Imagenes-------------------------------------------------//
     pfpImagesContainer: {
@@ -167,7 +165,6 @@ const styles = StyleSheet.create({
     inputContainerSmall: {
         height: 146,
         flexDirection: 'row',
-        
     },
     inputLeft: {
         flex: 1,
@@ -179,13 +176,14 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     inputTitleSmall: {
-        // fontFamily: 'Cocogoose',
+        fontFamily: 'coco-goose',
         fontStyle: 'normal',
         fontSize: 16,
         lineHeight: 19,
         color: '#000000',
     },
     inputSmall: {
+        fontFamily: 'coco-goose',
         backgroundColor: '#FFF',
         width: 153,
         height: 40,
@@ -202,7 +200,7 @@ const styles = StyleSheet.create({
         paddingLeft: 35,
     },
     inputTitleLarge: {
-        // fontFamily: 'Cocogoose',
+        fontFamily: 'coco-goose',
         fontStyle: 'normal',
         fontSize: 16,
         lineHeight: 19,
@@ -210,6 +208,7 @@ const styles = StyleSheet.create({
         textAlign: 'left',
     },
     inputLarge: {
+        fontFamily: 'coco-goose',
         backgroundColor: '#FFF',
         width: 340,
         height: 40,
@@ -260,19 +259,18 @@ const styles = StyleSheet.create({
     },
     icon: {
         height: '70%',
+        width: '70%',
     },
     buttonAddressIcon: {
         width: 23,
         height: 27,
     },
     buttonAddressText: {
-        // fontFamily: 'Inter',
+        fontFamily: 'inter',
         fontStyle: 'normal',
-        fontWeight: 'normal',
         fontSize: 16,
         lineHeight: 19,
         color: 'black',
-        // marginLeft: 10,
     },
 //-------------------------Contenedor Footer-------------------------------------------------//
     changeButtonContainer: {
@@ -295,7 +293,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     changeButtonText: {
-        // fontFamily: 'Inter',
+        // fontFamily: 'inter',
+        fontFamily: 'coco-goose',
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: 16,

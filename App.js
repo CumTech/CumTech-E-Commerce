@@ -13,6 +13,8 @@ export default function App() {
     async function loadFonts() {
       await Font.loadAsync({
         'coco-goose': require('./assets/fonts/CocogooseProLight-trial.ttf'), // Font can not have spaces
+        'inter': require('./assets/fonts/Inter-Regular.ttf'),
+        'monda': require('./assets/fonts/Monda-Regular.ttf'),
       }); 
       setFontLoaded(true);
     } 

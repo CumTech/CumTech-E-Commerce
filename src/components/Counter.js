@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     Text: {
+        fontFamily: 'monda',
         textAlign: 'center',
         fontSize: 16,
         paddingBottom: 5,

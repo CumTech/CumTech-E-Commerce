@@ -120,8 +120,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     title: { 
+        fontFamily: 'coco-goose',
         fontSize: 48,
-        fontWeight: 'bold',
     },
     spaceToCenterContainer: {
         flex: 0.7,
@@ -148,10 +148,9 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     widgetText: {
-        // fontFamily: 'coco-goose',
+        fontFamily: 'coco-goose',
         fontSize: 32,
-        fontWeight: 'bold',
-        color: '#FFF',
+        color: '#000',
     },
 //--------------------------INPUT--------------------------//
     inputContainer: {
@@ -166,9 +165,8 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     streetTitleText: {
-        // fontFamily: 'coco-goose',
-        fontSize: 16,
-        fontWeight: 'bold',
+        fontFamily: 'coco-goose',
+        fontSize: 16, 
         color: '#000',
     },
     streetInputContainer: {
@@ -187,9 +185,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     extNumberText: {
-        // fontFamily: 'coco-goose',
+        fontFamily: 'coco-goose',
         fontSize: 16,
-        fontWeight: 'bold',
         color: '#000',
     },
     intNumberContainer: {
@@ -199,9 +196,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     intNumberText: {
-        // fontFamily: 'coco-goose',
+        fontFamily: 'coco-goose',
         fontSize: 16,
-        fontWeight: 'bold',
         color: '#000',
     },
     addressContainer: {
@@ -230,9 +226,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     addressText: {
-        // fontFamily: 'coco-goose',
+        fontFamily: 'coco-goose',
         fontSize: 16,
-        fontWeight: 'bold',
         color: '#000',
     },
     inputLarge: {
@@ -280,9 +275,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     buttonText: {
-        // fontFamily: 'coco-goose',
+        fontFamily: 'coco-goose',
         fontSize: 16,
-        fontWeight: 'normal',
         color: '#000',
     },
 

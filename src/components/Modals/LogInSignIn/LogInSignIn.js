@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { View, Text,Modal, Pressable, StyleSheet } from 'react-native'
+import { View, Text, Modal, Pressable, StyleSheet } from 'react-native'
 import * as Font from 'expo-font';
 import styles from '../../styles/LogInSignInModalStyles';
 import { LinearGradient } from 'expo-linear-gradient';

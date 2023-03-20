@@ -37,8 +37,8 @@ const styles = {
         elevation: 6,
     },
     titleProductText:{
+        fontFamily: 'coco-goose',
         fontSize: 16,
-        fontWeight: 'bold',
     },
     priceContainer:{
         flex: 1,
@@ -57,12 +57,12 @@ const styles = {
         elevation: 6,
     },
     priceTextDollars:{
+        fontFamily: 'monda',
         fontSize: 13,
-        fontWeight: 'bold',
     },
     priceTextNumber:{
+        fontFamily: 'monda',
         fontSize: 16,
-        fontWeight: 'bold',
     },
     amountContainer:{
         flex: 1,
@@ -92,8 +92,8 @@ const styles = {
         elevation: 6,
     },
     amountText:{
+        fontFamily: 'monda',
         fontSize: 16,
-        fontWeight: 'bold',
     },
     amountButtonAddContainer:{
         flex: 1,

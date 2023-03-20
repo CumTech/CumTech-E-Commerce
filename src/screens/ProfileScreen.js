@@ -123,9 +123,9 @@ const styles = StyleSheet.create({
         flex: 1.1,
         alignItems: 'center',
     },
-    title: { 
+    title: {
+        fontFamily: 'coco-goose',
         fontSize: 48,
-        fontWeight: 'bold',
     },
     spaceToCenterContainer: {
         flex: 0.7,
@@ -196,9 +196,8 @@ const styles = StyleSheet.create({
     },
     userButtonText: {
         fontSize: 16,
-        fontFamily: 'Roboto',
+        fontFamily: 'coco-goose',
         fontStyle: 'normal',
-        fontWeight: 'bold',
         lineHeight: 19,
         color: 'black',
     },
@@ -225,8 +224,7 @@ const styles = StyleSheet.create({
         paddingTop: '2%',
     },
     orderDetailsTextRight: {
-        // fontFamily: 'Cocogoose',
-        fontWeight: 'bold',
+        fontFamily: 'coco-goose',
         fontSize: 20,
         color: '#000000',
     },
@@ -238,7 +236,7 @@ const styles = StyleSheet.create({
         borderBottomColor: '#FF9700',
     },
     orderDetailsTextLeft: {
-        // fontFamily: 'Inter',
+        fontFamily: 'inter',
         fontStyle: 'normal',
         fontSize: 16,
         color: '#FF9700',
@@ -287,9 +285,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     signOutText: {
-        // fontFamily: 'Inter',
+        fontFamily: 'coco-goose',
         fontStyle: 'normal',
-        fontWeight: 'normal',
         fontSize: 16,
         lineHeight: 19,
         color: 'black',

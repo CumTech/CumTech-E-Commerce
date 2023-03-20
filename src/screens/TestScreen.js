@@ -10,8 +10,9 @@ export default function TestScreen() {
   };
 
   return (
-    <View>
-      <Text>Esta screen es solo para agregar la carpeta screens, no mover nada, se borrara a la finalizacion del proyectohrthgtg</Text>
+    <View style={styles.centeredView}>
+      <Text style={styles.textTest}>
+        Esta screen es solo para agregar la carpeta screens, no mover nada, se borrara a la finalizacion del proyecto</Text>
       <LogInSignInModal visible={modalVisible} onClose={handleModalClose} />
       <Pressable
         style={[styles.button, styles.buttonOpen]}
@@ -67,9 +68,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#2196F3',
     
   },
-  
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
+  },
+  textStyle:{
+    fontFamily: 'coco-goose',
+    color:'white',
+    textAlign:'center',
+  },
+  textTest:{
+    fontFamily: 'coco-goose',
+    color:'black',
+    textAlign:'center',
+    marginBottom:22,
   },
 });

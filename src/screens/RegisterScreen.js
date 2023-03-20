@@ -62,12 +62,12 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   titleBig: {
-    // fontFamily: 'coco-goose',
+    fontFamily: 'coco-goose',
     fontSize: 48,
     marginBottom: '5%',
   },
   titleLittle: {
-    // fontFamily: 'coco-goose',
+    fontFamily: 'coco-goose',
     fontSize: 13,
   },
   inputsContainer: {
@@ -75,11 +75,11 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   textInput: {
-    // fontFamily: 'coco-goose',
+    fontFamily: 'coco-goose',
     fontSize: 16,
   },
   input: {
-    // fontFamily: 'coco-goose',
+    fontFamily: 'coco-goose',
     fontSize: 16,
     backgroundColor: '#FFF8EF',
     height: 40,
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonNextText: {
-    // fontFamily: 'coco-goose',
+    fontFamily: 'coco-goose',
     fontSize: 24,
     marginRight: '3%',
     marginBottom: '2%',
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   footerText:{
-    // fontFamily: 'inter',
+    fontFamily: 'inter',
     fontSize: 16,
   },
   registerButton:{
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     marginLeft: '2%',
   },
   registerButtonText:{
-    // fontFamily: 'inter',
+    fontFamily: 'inter',
     fontSize: 16,
     color: '#F77019',
     textDecorationLine: 'underline',

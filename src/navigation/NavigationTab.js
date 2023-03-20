@@ -10,6 +10,7 @@ import ProfileDetailsScreen from '../screens/ProfileDetailsScreen';
 import WishListScreen from '../screens/WishListScreen';
 import ProfileDetailsAddressScreen from '../screens/ProfileDetailsAddressScreen';
 import OrdersScreen from '../screens/OrdersScreen';
+import TestScreen from '../screens/TestScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -30,6 +31,8 @@ export default function NavigationStack() {
       <Tab.Screen name="Cards" component={PaymentsScreen} />
 
       <Tab.Screen name="WishList" component={WishListScreen} />
+
+      <Tab.Screen name="Test" component={TestScreen} />
     </Tab.Navigator>
   );
 }

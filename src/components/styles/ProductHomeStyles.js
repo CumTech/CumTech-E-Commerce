@@ -49,9 +49,9 @@ const styles = {
         fontWeight: 'bold',
     },
     priceTextNumber:{
+        fontFamily: 'monda',
         fontSize: 16,
         color: 'black',
-        fontWeight: 'bold',
     },
     buttonsContainer:{
         flex: 1,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, Text, ScrollView,View, TouchableOpacity } from 'react-native';
-import ProductCart from '../components/Products/ProductCart.js'
+import ProductCart from '../components/Products/ProductCart'
 import BackBotton from '../components/Buttons/BackButton';
 import SafeAreaAndroid from '../components/SafeViewAndroid';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -121,7 +121,6 @@ const styles = StyleSheet.create({
   title: { 
     fontFamily: 'coco-goose',
     fontSize: 48,
-    fontWeight: 'bold',
   },
   spaceToCenterContainer: {
     flex: 0.7,
@@ -168,7 +167,6 @@ const styles = StyleSheet.create({
   shipmentDetailsTitleText: {
     fontFamily: 'coco-goose',
     fontSize: 16,
-    fontWeight: 'bold',
     textAlign: 'center',
   },
   shipmentDetailsAddress: {
@@ -176,9 +174,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   shipmentDetailsAddressText: {
-    // fontFamily: 'coco-goose',
+    fontFamily: 'monda',
     fontSize: 15,
-    fontWeight: 'normal',
     textAlign: 'center',
   },
 //--------------------SHIPMENT DETAILS CONTENT RIGHT--------------------//
@@ -200,21 +197,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   shipmentDetailsPriceTextMoneda: {
-    fontFamily: 'coco-goose',
+    fontFamily: 'monda',
     fontSize: 13,
-    fontWeight: 'bold',
   },
   shipmentDetailsPriceText: {
-    fontFamily: 'coco-goose',
+    fontFamily: 'monda',
     fontSize: 16,
-    fontWeight: 'bold',
     textAlign: 'center',
   },
   shipmentDetailsButton: {
     flex: 0.5,
     alignItems: 'center',
-    // borderColor: '#000',
-    // borderWidth: 1,
   },
   shipmentDetailsButtonBG: {
     width: '80%',
@@ -223,5 +216,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  shipmentDetailsButtonTouchableText: {
+    fontFamily: 'coco-goose',
+    fontSize: 16,
+    textAlign: 'center',
   },
 });

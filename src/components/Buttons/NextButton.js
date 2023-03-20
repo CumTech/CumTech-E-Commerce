@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, Text, Image, View } from 'react-native';
+import { TouchableOpacity, Image, View } from 'react-native';
 import styles from '../styles/NextButtonStyles';
 import { LinearGradient } from 'expo-linear-gradient';
 
