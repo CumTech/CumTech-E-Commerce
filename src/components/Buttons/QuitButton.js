@@ -10,7 +10,7 @@ const cancelButton = () => {
 
 return (
     <LinearGradient
-    colors={['#FF9900', '#F83E3E']}
+    colors={['#F77019', '#FAD25C']}
     start={{ x: 0, y: 1 }}
     end={{ x: 0, y: 0 }}
     style={styles.container}

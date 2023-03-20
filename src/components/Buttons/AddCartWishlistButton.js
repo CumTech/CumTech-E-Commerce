@@ -10,7 +10,7 @@ const AddWishlistButton = () => {
 
     return (
         <LinearGradient
-        colors={['#F71919', '#FFA553']}
+        colors={['#FAD25C', '#F77019']}
         start={{ x: 0, y: 1 }}
         end={{ x: 0, y: 0 }}
         style={styles.container}

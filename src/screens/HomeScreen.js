@@ -19,7 +19,7 @@ export default function App() {
           </View>
         </View>
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>SHOP</Text>
+          <Text style={styles.titleText}>SHOP</Text>
           </View>
         <View style={styles.cartContainer}>
           <View style={styles.cartButtonContainer}>
@@ -91,9 +91,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
   },
-  title:{
+  titleText:{
+    fontFamily: 'coco-goose',
     fontSize: 48,
-    fontWeight: 'bold',
   },
   cartContainer:{
     flex: 0.7,

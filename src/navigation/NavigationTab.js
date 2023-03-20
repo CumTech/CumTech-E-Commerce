@@ -17,18 +17,19 @@ export default function NavigationStack() {
   return (
     <Tab.Navigator
     screenOptions={{ headerShown: false}}>
+      <Tab.Screen name="ProfileDetails" component={ProfileDetailsScreen} /> 
       <Tab.Screen name="Address" component={ProfileDetailsAddressScreen} />
       <Tab.Screen name="Orders" component={OrdersScreen} />
-      {/* <Tab.Screen name="Home" component={HomeScreen} /> */}
-      {/* <Tab.Screen name="Carrito" component={CarritoScreen} /> */}
-      {/* <Tab.Screen name="Profile" component={ProfileScreen} /> */}
 
-      {/* <Tab.Screen name="LogIn" component={LogInScreen} />
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Carrito" component={CarritoScreen} />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
+
+      <Tab.Screen name="LogIn" component={LogInScreen} />
       <Tab.Screen name="Register" component={RegisterScreen} />
-      <Tab.Screen name="Cards" component={PaymentsScreen} /> */}
+      <Tab.Screen name="Cards" component={PaymentsScreen} />
 
-      <Tab.Screen name="ProfileDetails" component={ProfileDetailsScreen} /> 
-      {/* <Tab.Screen name="WishList" component={WishListScreen} /> */}
+      <Tab.Screen name="WishList" component={WishListScreen} />
     </Tab.Navigator>
   );
 }

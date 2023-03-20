@@ -80,9 +80,9 @@ const styles = {
         alignItems: 'center',
     },
     titleProductText:{
+        fontFamily: 'coco-goose',
         fontSize: 16,
         color: 'black',
-        fontWeight: 'bold',
     },
 }
 

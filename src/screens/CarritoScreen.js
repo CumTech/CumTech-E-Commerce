@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: { 
+    fontFamily: 'coco-goose',
     fontSize: 48,
     fontWeight: 'bold',
   },
@@ -165,7 +166,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   shipmentDetailsTitleText: {
-    //fontFamily: 'Cocogoose',
+    fontFamily: 'coco-goose',
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -175,7 +176,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   shipmentDetailsAddressText: {
-    //fontFamily: 'Cocogoose',
+    // fontFamily: 'coco-goose',
     fontSize: 15,
     fontWeight: 'normal',
     textAlign: 'center',
@@ -199,12 +200,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   shipmentDetailsPriceTextMoneda: {
-    //fontFamily: 'Cocogoose',
+    fontFamily: 'coco-goose',
     fontSize: 13,
     fontWeight: 'bold',
   },
   shipmentDetailsPriceText: {
-    //fontFamily: 'Cocogoose',
+    fontFamily: 'coco-goose',
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
