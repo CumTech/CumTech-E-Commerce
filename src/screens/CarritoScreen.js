@@ -1,96 +1,226 @@
-import { StyleSheet, Text, ScrollView,View, TouchableOpacity, LinearGradient } from 'react-native';
+import React from 'react';
+import { SafeAreaView, StyleSheet, Text, ScrollView,View, TouchableOpacity } from 'react-native';
 import ProductCart from '../components/Products/ProductCart.js'
-import BackButton from '../components/Buttons/BackButton.js';
-export default function App(props) {
-  const { navigation } = props;
+import BackBotton from '../components/Buttons/BackButton';
+import SafeAreaAndroid from '../components/SafeViewAndroid';
+import { LinearGradient } from 'expo-linear-gradient';
 
-    const goToDetails = () => {
-        navigation.navigate('WishList');
-    }
-  return (
-    <View style={[styles.container,{}]}>
-      <View style = {[styles.bottom,{}]}>
-       <BackButton/>
-        <View style={styles.tittle}>
-        <Text style = {{fontSize: 48, marginTop: -3}}>CART</Text>
-        </View>
-      </View>
-      <ScrollView style = {styles.middle}>
+export default function App() {
 
-      <ProductCart/>
-      <ProductCart/>
-      <ProductCart/>
-      
-
-      </ScrollView>
-      <View style = {[styles.down, {backgroundColor: 'white', borderRadius: 10, elevation: 4}]}>
-        <View style = {styles.texts}>
-          <Text>Shipment</Text>
-          <Text style = {{marginLeft: 10}}>Details</Text>
-          <Text></Text>
-          <Text style = {{marginLeft: 5}}>3064, Alfred Drive</Text>
-          <Text style = {{marginLeft: -13}}>New York, New York (NY),</Text>
-          <Text style = {{marginLeft: 40}}>1005</Text>
-        </View>
-        <View style = {[styles.texts, {flex :1 , margin: 10}]}>
-
-    
-            <TouchableOpacity style={[styles.downbut,{height: 50, elevation: 4}]}>
-              <Text>USD$19.99</Text>
-            </TouchableOpacity>
-            
-            <TouchableOpacity style={styles.goToDetails} onPress={goToDetails}>
-                            <Text style={styles.goToDetailsText}>WishList</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={[styles.downbut, {height: 30, marginTop: 30, elevation: 4}]}>
-              <Text>Comprar</Text>
-            </TouchableOpacity>
-        </View>
-        </View>
-      </View>
-      
-      
-  );
-}
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: '#FFF7ED'
-  },
-  bottom:{
-    flex: .2,
-    marginTop: 35,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  tittle:{
-    marginLeft: 85,
-    alignItems: 'center',
-    justifyContent: 'center'
-
-  },
-  middle:{
-    flex: 1,
-  },
-  down:{
-    marginTop: 10,
-    flex: .4,
-    flexDirection: 'row',
-  },
-  texts:{
-  marginTop: 20,
-  marginLeft: 30
-  },
-  downbut:{
-    width: '100%',
-    marginTop: 10,
-    backgroundColor: 'orange',
-    borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center'
-
+  const payButton = () => {
+    console.log('Shopping Button Pressed');
   }
 
+  return (
+    <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <View style={styles.backButtonContainer}>
+            <View style={styles.backButton}>
+              <BackBotton/>
+            </View>
+          </View>
+          <View style={styles.titleContainer}>
+            <Text style={styles.title}>CART</Text>
+          </View>
+          <View style={styles.spaceToCenterContainer}>
+          </View>
+        </View>
+      <ScrollView>
+        <View style={styles.scrollContainer}>
+          <ProductCart/>
+          <ProductCart/>
+          <ProductCart/>
+          <ProductCart/>
+          <ProductCart/>
+          <ProductCart/>
+          <ProductCart/>
+          <ProductCart/>
+          <ProductCart/>
+          <ProductCart/>
+          <ProductCart/>
+          <ProductCart/>
+        </View>
+      </ScrollView>
+      <View style = {styles.shipmentDetailsContainer}>
+        <LinearGradient 
+          colors={['#FFFFFF', '#FFF7ED']}
+          style={ styles.shipmentDetailsBG}
+          start={{ x: 0, y: 1 }}
+          end={{ x: 0, y: 0 }}
+        >
+          <View style={styles.shipmentDetailsContentContainer}>
+            <View style={styles.shipmentDetailsContentLeftContainer}>
+              <View style={styles.shipmentDetailsTitle}>
+                <Text style={styles.shipmentDetailsTitleText}>Shipment</Text>
+                <Text style={styles.shipmentDetailsTitleText}>Details:</Text>
+              </View>
+              <View style={styles.shipmentDetailsAddress}>
+                <Text style={styles.shipmentDetailsAddressText}>3064 Alfred Drive</Text>
+                <Text style={styles.shipmentDetailsAddressText}>New York, New York(NY)</Text>
+                <Text style={styles.shipmentDetailsAddressText}>10005</Text>
+              </View>
+            </View>
+            <View style={styles.shipmentDetailsContentRightContainer}>
+              <View style={styles.shipmentDetailsPriceContainer}>
+                <LinearGradient
+                  colors={['#F77019', '#FAD25C']}
+                  style={styles.shipmentDetailsPriceBG}
+                  start={{ x: 0, y: 1 }}
+                  end={{ x: 0, y: 0 }}
+                >
+                  <Text style={styles.shipmentDetailsPriceTextMoneda}>US$</Text>
+                  <Text style={styles.shipmentDetailsPriceText}>19.99</Text>
+                </LinearGradient>
+              </View>
+              <View style={styles.shipmentDetailsButton}>
+                <LinearGradient
+                  colors={['#F71919', '#FFA553']}
+                  style={styles.shipmentDetailsButtonBG}
+                  start={{ x: 0, y: 1 }}
+                  end={{ x: 0, y: 0 }}
+                >
+                  <TouchableOpacity style={styles.shipmentDetailsButtonTouchable} onPress={payButton}>
+                    <Text style={styles.shipmentDetailsButtonTouchableText}>Buy</Text>
+                  </TouchableOpacity>
+                </LinearGradient>
+              </View>
+            </View>
+          </View>
+        </LinearGradient>
+      </View>
+    </View>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+//--------------------CONTAINER PRINCIPAL--------------------//
+  container: {
+    height: '100%',
+    backgroundColor: '#FFF7ED',
+  },
+//--------------------HEADER--------------------//
+  header: {
+    height: 80,
+    flexDirection: 'row',                                             
+    justifyContent: 'center',
+    alignItems: 'center',
+    
+  },
+  backButtonContainer: {
+    flex: 0.7,
+    alignItems: 'center',
+  },
+  backButton: {
+  },
+  titleContainer: {
+    flex: 1.1,
+    alignItems: 'center',
+  },
+  title: { 
+    fontSize: 48,
+    fontWeight: 'bold',
+  },
+  spaceToCenterContainer: {
+    flex: 0.7,
+    height: 80,
+    justifyContent: 'center',
+    alignItems: 'center',
+    opacity: 0,
+  },
+//--------------------SCROLL--------------------//
+  scrollContainer: {
+    paddingHorizontal: '10%',
+    paddingTop: '3%',
+    paddingBottom: 170,
+  },
+//--------------------SHIPMENT DETAILS--------------------//
+  shipmentDetailsContainer: {
+    position: 'absolute',
+    height: '20%',
+    width: '100%',
+    top: '78%',
+    alignItems: 'center',
+  },
+  shipmentDetailsBG: {
+    width: '80%',
+    height: '100%',
+    borderRadius: 10,
+    elevation: 6, 
+  },
+//--------------------SHIPMENT DETAILS CONTENT--------------------//
+  shipmentDetailsContentContainer: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+//--------------------SHIPMENT DETAILS CONTENT LEFT--------------------//
+  shipmentDetailsContentLeftContainer: {
+    flex: 1.3,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
+  shipmentDetailsTitle: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  shipmentDetailsTitleText: {
+    //fontFamily: 'Cocogoose',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  shipmentDetailsAddress: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  shipmentDetailsAddressText: {
+    //fontFamily: 'Cocogoose',
+    fontSize: 15,
+    fontWeight: 'normal',
+    textAlign: 'center',
+  },
+//--------------------SHIPMENT DETAILS CONTENT RIGHT--------------------//
+  shipmentDetailsContentRightContainer: {
+    flex: 1,
+    flexDirection: 'column',
+  },
+  shipmentDetailsPriceContainer: {
+    flex: 0.8,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  shipmentDetailsPriceBG: {
+    width: '80%',
+    height: '60%',
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  shipmentDetailsPriceTextMoneda: {
+    //fontFamily: 'Cocogoose',
+    fontSize: 13,
+    fontWeight: 'bold',
+  },
+  shipmentDetailsPriceText: {
+    //fontFamily: 'Cocogoose',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  shipmentDetailsButton: {
+    flex: 0.5,
+    alignItems: 'center',
+    // borderColor: '#000',
+    // borderWidth: 1,
+  },
+  shipmentDetailsButtonBG: {
+    width: '80%',
+    height: '60%',
+    top: '5%',
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

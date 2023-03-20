@@ -1,69 +1,41 @@
-import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
-import LogInButton from '../components/Buttons/logInButton';
-import * as Font from 'expo-font';
-import React, { useState, useEffect } from 'react';
+import LogInButton from '../components/Buttons/NextButton';
+
 
 export default function App() {
-  const [fontLoaded, setFontLoaded] = useState(false);
 
-  useEffect(() => {
-    async function loadFonts() {
-      await Font.loadAsync({
-        'coco-goose': require('../../assets/fonts/CocogooseProLight-trial.ttf'), // Font can not have spaces
-      }); 
-      setFontLoaded(true);
-    } 
-    loadFonts();
-  }, []);
-
-  if (!fontLoaded) {
-    return <Text>Loading...</Text>;
+  const handlePress = () => {
+    console.log('Button pressed');
   }
+
   return (
-
     <View style={styles.container}>
-            <ImageBackground source={require('../../assets/images/BgLogIn.png')} style={{ flex: 1 }}>
-
-      <View style={styles.topContainer}>
-        <Text style={[{fontSize:48, marginBottom:3}]}>CumTech</Text>
-        <Text style={[{fontSize:13, marginBottom:80}]}>Log in to your account</Text>
-        <View>
-        <Text style={styles.textInput}>Name</Text>
-        <TextInput
-        style={[styles.input,{marginBottom:25}]}
-        //onChangeText={onChangeNumber}
-        //value={number}
-        keyboardType="email-address"
-      />
-        <Text style={styles.textInput}>Email</Text>
-        <TextInput
-        style={[styles.input,{marginBottom:25}]}
-        //onChangeText={onChangeNumber}
-        //value={number}
-        keyboardType="email-address"
-      />
-
-      <Text style={styles.textInput}>Password</Text>
-      <TextInput
-      secureTextEntry={true}
-        style={[styles.input, {marginBottom: 3}]}
-        //onChangeText={onChangeNumber}
-        //value={number}
-      />
-            <Text style={[{fontSize:10, alignSelf: 'flex-end', color: '#8f8f8f'}]}>Forgot your password?</Text>
-      </View>
-      </View>
-      <View style={styles.centerContainer}>
-        <Text style={[{marginBottom:8, fontSize:24, marginRight:5}]}>Log In</Text>
-        <LogInButton/>
-      </View>
-      <View style={[styles.bottomContainer]}>
-        <Text style={[{ fontSize:16, marginRight:5,}]}>Don´t have an account?</Text>
-        <TouchableOpacity style={[{marginRight:5,}]} onPress="">
-          <Text style={[{ fontSize:16, marginRight:5,textDecorationLine: 'underline', color: '#ff9700'}]}>Register</Text>
-        </TouchableOpacity>
-      </View>
+      <ImageBackground source={require('../../assets/images/BgLogIn.png')} style={{ flex: 1 }}>
+        <View style={styles.topContainer}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.titleLittle}>Hello,</Text>
+            <Text style={styles.titleBig}>Sign Up!</Text>
+          </View>
+          <View style={styles.inputsContainer}>
+            <Text style={styles.textInput}>Name</Text>
+            <TextInput style={styles.input}/>
+            <Text style={styles.textInput}>Email</Text>
+            <TextInput style={styles.input}/>
+            <Text style={styles.textInput}>Password</Text>
+            <TextInput secureTextEntry={true} style={styles.input} />
+          </View>
+        </View>
+        <View style={styles.centerContainer}>
+          <Text style={styles.buttonNextText}>Create</Text>
+          <LogInButton />
+        </View>
+        <View style={[styles.bottomContainer]}>
+          <Text style={styles.footerText}>Already have an account?</Text>
+          <TouchableOpacity style={styles.registerButton} onPress={handlePress} >
+            <Text style={styles.registerButtonText}>Login</Text>
+          </TouchableOpacity>
+        </View>
       </ImageBackground>
     </View>
   );
@@ -72,13 +44,45 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
+    height: '100%',
+    backgroundColor: '#FFFFFF',
   },
   topContainer: {
     flex: 2,
-    justifyContent: 'flex-end',
     alignItems: 'center',
+  },
+  titleContainer: {
+    flex: 0.8,
+    justifyContent: 'flex-end',
+  },
+  titleBig: {
+    fontFamily: 'coco-goose',
+    fontSize: 48,
+    marginBottom: '5%',
+  },
+  titleLittle: {
+    fontFamily: 'coco-goose',
+    fontSize: 13,
+  },
+  inputsContainer: {
+    flex: 1,
+    justifyContent: 'flex-start',
+  },
+  textInput: {
+    fontFamily: 'coco-goose',
+    fontSize: 16,
+  },
+  input: {
+    fontFamily: 'coco-goose',
+    fontSize: 16,
+    backgroundColor: '#FFF8EF',
+    height: 40,
+    width: 250,
+    paddingLeft: '5%',
+    marginBottom: 25,
+    marginTop: 5,
+    borderRadius: 15,
+    elevation: 6,
 
   },
   centerContainer: {
@@ -87,36 +91,32 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
+  buttonNextText: {
+    fontFamily: 'coco-goose',
+    fontSize: 24,
+    marginRight: '3%',
+    marginBottom: '2%',
+  },
   bottomContainer:{
     flex: 0.5,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  textInput: {
-    fontFamily: 'coco-goose',
+  footerText:{
+    fontFamily: 'inter',
     fontSize: 16,
-    fontWeight: 300,
-    color: 'black',
-    alignItems: 'center',
   },
-  input: {
-    height: 35,
-    width: 232,
-    marginBottom: 10,
-    borderWidth: 10,
-    borderColor: 'transparent', // borde transparente para que la sombra se muestre en la parte interior
-    backgroundColor:'#FFEDD9',
-    overflow: 'hidden', // ocultar la parte exterior de la sombra
-    padding: 10,
-    borderRadius: 24,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 1, // establece el valor de shadowRadius en 1
-    elevation: 1.5, // establece el valor de elevation en 1
-  }
+  registerButton:{
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: '2%',
+  },
+  registerButtonText:{
+    fontFamily: 'inter',
+    fontSize: 16,
+    color: '#F77019',
+    textDecorationLine: 'underline',
+  },
 });

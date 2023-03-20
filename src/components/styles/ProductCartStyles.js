@@ -1,54 +1,106 @@
-
 const styles = {
-  product:{
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-
-    marginBottom: 10,
- 
-  },
-  imgContainer:{
-    width: 150,
-    height: 150,
-    borderRadius: 20,
-    elevation: 4,
-  },
-  img:{
-    width: 150,
-    height: 150,
-    borderRadius: 20,
-  },
-  productInformation:{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center',
-    whidt:'100%'
-  },
-  Producttext:{
-    flex:1,
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    width:'80%',
-    marginTop:10,
-    marginBottom: 10,
-  },
-  price:{
-    flex:1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width:'80%',
-    marginBottom: 10,
-  },
-  amount:{
-    flex:1,
-    alignItems:'center',
-    justifyContent: 'center',
-    flexDirection:'row',
-    width:'80%',
-    marginBottom: 10,
-
-  }
+    container:{
+        height: 150,
+        flexDirection: 'row',
+        marginBottom: '4%',
+    },
+    imageProductContainer:{
+        flex: 0.8,
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 20,
+        elevation: 6,
+    },
+    image:{
+        width: '100%',
+        height: '100%',
+        borderRadius: 20,
+    },
+    informationContainer:{
+        flex: 1,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    titleProductContainer:{
+        flex: 1,
+        width: '100%',
+        alignItems: 'flex-end',
+    },
+    titleProductTextContainer:{
+        width: '90%',
+        height: '80%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        borderRadius: 10,
+        elevation: 6,
+    },
+    titleProductText:{
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    priceContainer:{
+        flex: 1,
+        width: '100%',
+        alignItems: 'flex-end',
+        justifyContent: 'center',
+    },
+    priceTextContainer:{
+        width: '90%',
+        height: '80%',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        borderRadius: 10,
+        elevation: 6,
+    },
+    priceTextDollars:{
+        fontSize: 13,
+        fontWeight: 'bold',
+    },
+    priceTextNumber:{
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    amountContainer:{
+        flex: 1,
+        width: '100%',
+    },
+    ButtonsContainer:{
+        flex: 1,
+        width: '100%',
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+    },
+    amountButtonMinusContainer:{
+        flex: 1,
+        height: '100%',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        paddingLeft: '4%',
+        marginRight: '4%',
+    },
+    amountTextContainer:{
+        flex: 1,
+        height: '80%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        borderRadius: 10,
+        elevation: 6,
+    },
+    amountText:{
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    amountButtonAddContainer:{
+        flex: 1,
+        height: '100%',
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+    },
 }
 
 export default styles;

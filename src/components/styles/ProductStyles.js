@@ -28,11 +28,9 @@ const styles = {
       backgroundColor: 'white',
     },
     contenedorproductos: {
-      width: '49%',
+      width: '48%',
       height: 200,
-      backgroundColor: '#FFF7ED',
       marginBottom: 5,
-      borderRadius:12,
     },
     precio:{
       flexDirection: 'row',

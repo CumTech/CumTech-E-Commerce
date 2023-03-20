@@ -1,16 +1,33 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Image } from 'react-native'
 import React from 'react'
-import styles from './styles/PaymentsStyles'
 
 const PaymentsCards = () => {
   return (
-    <View style={styles.tarjetas}>
-      <Image
-        style={styles.tarjetasI}
-        source={require("../../assets/images/tarjeta.jpg")}
-      />
+    <View style={styles.container}>
+      <View style={styles.imageContainer}>
+        <Image resizeMode="contain" style={styles.image} source={require('../../assets/images/card.png')} />
+      </View>
     </View>
   )
 }
 
 export default PaymentsCards;
+
+const styles = {
+  container: {
+    width: '90%',
+    height: 200,
+    margin: '5%',
+    borderRadius: 12,
+  },
+  imageContainer: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 12,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 12,
+  },
+}

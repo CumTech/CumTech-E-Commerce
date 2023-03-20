@@ -1,37 +1,43 @@
 import {  Text, View, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import styles from '../styles/ProductCartStyles';
-import AddProductButton from '../Buttons/AddProductCart';
-import MinusButton from '../Buttons/MinusCart';
+import PlusButton from '../Buttons/PlusButton';
+import MinusButton from '../Buttons/MinusButton';
 
 const ProductCart = () => {
-  return (
-    <View style = {styles.product}>
-        <View style = {[styles.imgContainer]}>
-          <Image  style = {[styles.img]}source={require('../../../assets/images/aguacate.png')}/>
-          </View>
-          <View style = {styles.productInformation}>
-            
-            <View style= {[styles.Producttext,{backgroundColor: 'white', borderRadius: 10, margin: 5,  elevation: 4,}]}>
-              <Text>Aguacates</Text>
+    return (
+        <View style = {styles.container}>
+            <View style = {styles.imageProductContainer}>
+                <Image resizeMode="contain" style = {styles.image}source={require('../../../assets/images/aguacate.png')}/>
             </View>
-            
-            <View style ={[styles.price,{backgroundColor: 'white', borderRadius: 10, margin: 5, elevation: 4,}]}>
-              <Text>USD$19.99</Text>
+            <View style = {styles.informationContainer}>
+                <View style={styles.titleProductContainer}>
+                    <View style={styles.titleProductTextContainer}>
+                        <Text style={styles.titleProductText}>Aguacates</Text>
+                    </View>
+                </View>
+                <View style={styles.priceContainer}>
+                    <View style={styles.priceTextContainer}>
+                            <Text style={styles.priceTextDollars}>US$</Text>
+                            <Text style={styles.priceTextNumber}>1.99</Text>
+                    </View>
+                </View>
+                <View style={styles.amountContainer}>
+                    <View style={styles.ButtonsContainer}>
+                        <View style={styles.amountButtonMinusContainer}>
+                            <MinusButton/>
+                        </View>
+                        <View style={styles.amountTextContainer}>
+                            <Text style={styles.amountText}>1</Text>
+                        </View>
+                        <View style={styles.amountButtonAddContainer}>
+                            <PlusButton/>
+                        </View>
+                    </View>
+                </View>
             </View>
-
-            <View style ={[styles.amount]}>
-            <AddProductButton/>
-            <View style ={{flex:2,alignItems:'center',justifyContent: "center",  backgroundColor: 'white',height: '100%',borderRadius: 10, marginLeft: 5, marginRight: 5, elevation: 4,}}>
-              <Text >1</Text>
-            </View>
-            <MinusButton/>
-            </View>
-
-          </View>
-
         </View>
-    )
-}
+    );
+};
 
 export default ProductCart;
