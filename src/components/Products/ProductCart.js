@@ -13,17 +13,17 @@ const ProductCart = () => {
           <View style = {styles.productInformation}>
             
             <View style= {[styles.Producttext,{backgroundColor: 'white', borderRadius: 10, margin: 5,  elevation: 4,}]}>
-              <Text>Aguacates</Text>
+              <Text style= {{fontFamily: 'Roboto'}}>Aguacates</Text>
             </View>
             
             <View style ={[styles.price,{backgroundColor: 'white', borderRadius: 10, margin: 5, elevation: 4,}]}>
-              <Text>USD$19.99</Text>
+              <Text style= {{fontFamily: 'Roboto'}}>USD$19.99</Text>
             </View>
 
             <View style ={[styles.amount]}>
             <AddProductButton/>
             <View style ={{flex:2,alignItems:'center',justifyContent: "center",  backgroundColor: 'white',height: '100%',borderRadius: 10, marginLeft: 5, marginRight: 5, elevation: 4,}}>
-              <Text >1</Text>
+              <Text style= {{fontFamily: 'Roboto'}}>1</Text>
             </View>
             <MinusButton/>
             </View>
