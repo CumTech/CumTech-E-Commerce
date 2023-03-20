@@ -12,7 +12,7 @@ export default function App(props) {
       <View style = {[styles.bottom,{}]}>
        <BackButton/>
         <View style={styles.tittle}>
-        <Text style = {{fontSize: 48, marginTop: -3}}>CART</Text>
+        <Text style = {{fontSize: 48, marginTop: -3, fontFamily: 'Roboto'}}>CART</Text>
         </View>
       </View>
       <ScrollView style = {styles.middle}>
@@ -25,26 +25,26 @@ export default function App(props) {
       </ScrollView>
       <View style = {[styles.down, {backgroundColor: 'white', borderRadius: 10, elevation: 4}]}>
         <View style = {styles.texts}>
-          <Text>Shipment</Text>
-          <Text style = {{marginLeft: 10}}>Details</Text>
+          <Text style={{fontFamily: 'Roboto'}}>Shipment</Text>
+          <Text style = {{marginLeft: 10, fontFamily: 'Roboto'}}>Details</Text>
           <Text></Text>
-          <Text style = {{marginLeft: 5}}>3064, Alfred Drive</Text>
-          <Text style = {{marginLeft: -13}}>New York, New York (NY),</Text>
-          <Text style = {{marginLeft: 40}}>1005</Text>
+          <Text style = {{marginLeft: 5, fontFamily: 'Roboto'}}>3064, Alfred Drive</Text>
+          <Text style = {{marginLeft: -13, fontFamily: 'Roboto'}}>New York, New York (NY),</Text>
+          <Text style = {{marginLeft: 40, fontFamily: 'Roboto'}}>1005</Text>
         </View>
         <View style = {[styles.texts, {flex :1 , margin: 10}]}>
 
     
             <TouchableOpacity style={[styles.downbut,{height: 50, elevation: 4}]}>
-              <Text>USD$19.99</Text>
+              <Text style= {{fontFamily: 'Roboto'}}>USD$19.99</Text>
             </TouchableOpacity>
             
             <TouchableOpacity style={styles.goToDetails} onPress={goToDetails}>
-                            <Text style={styles.goToDetailsText}>WishList</Text>
+                            <Text style= {{fontFamily: 'Roboto'}}>WishList</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={[styles.downbut, {height: 30, marginTop: 30, elevation: 4}]}>
-              <Text>Comprar</Text>
+              <Text style= {{fontFamily: 'Roboto'}}>Comprar</Text>
             </TouchableOpacity>
         </View>
         </View>
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#FFF7ED'
+    backgroundColor: '#FFF7ED',
   },
   bottom:{
     flex: .2,

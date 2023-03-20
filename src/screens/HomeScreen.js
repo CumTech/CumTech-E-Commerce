@@ -14,7 +14,7 @@ export default function App() {
           <Text>Flecha</Text>
           </TouchableOpacity>
           </View>
-        <View style={styles.Logotipo}><Text style={{fontSize: 48, fontWeight: 'bold', fontWeight: '250'}}>SHOP</Text></View>
+        <View style={styles.Logotipo}><Text style={{fontSize: 48,fontFamily: 'Roboto'}}>SHOP</Text></View>
         <View style={styles.Carrito}>
           <TouchableOpacity style={styles.button}>
           <Image
