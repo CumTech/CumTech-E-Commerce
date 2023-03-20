@@ -167,12 +167,11 @@ const styles = StyleSheet.create({
     inputContainerSmall: {
         height: 146,
         flexDirection: 'row',
+        
     },
     inputLeft: {
         flex: 1,
         flexDirection: 'column',
-        // borderColor: 'red',
-        // borderWidth: 1,
         paddingLeft: 35,
     },
     inputRight: {
@@ -185,7 +184,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 19,
         color: '#000000',
-        
     },
     inputSmall: {
         backgroundColor: '#FFF',

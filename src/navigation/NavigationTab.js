@@ -27,7 +27,7 @@ export default function NavigationStack() {
       <Tab.Screen name="Register" component={RegisterScreen} />
       <Tab.Screen name="Cards" component={PaymentsScreen} /> */}
 
-      {/* <Tab.Screen name="ProfileDetails" component={ProfileDetailsScreen} />  */}
+      <Tab.Screen name="ProfileDetails" component={ProfileDetailsScreen} /> 
       {/* <Tab.Screen name="WishList" component={WishListScreen} /> */}
     </Tab.Navigator>
   );
