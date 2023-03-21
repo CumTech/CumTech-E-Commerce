@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, Text, ScrollView,View, TouchableOpacity } from 'react-native';
 import ProductCart from '../components/Products/ProductCart'
-import BackBotton from '../components/Buttons/BackButton';
+import Header from '../components/Header';
 import SafeAreaAndroid from '../components/SafeViewAndroid';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -14,18 +14,7 @@ export default function App() {
   return (
     <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
       <View style={styles.container}>
-        <View style={styles.header}>
-          <View style={styles.backButtonContainer}>
-            <View style={styles.backButton}>
-              <BackBotton/>
-            </View>
-          </View>
-          <View style={styles.titleContainer}>
-            <Text style={styles.title}>CART</Text>
-          </View>
-          <View style={styles.spaceToCenterContainer}>
-          </View>
-        </View>
+      <Header Title='CART'/>
       <ScrollView>
         <View style={styles.scrollContainer}>
           <ProductCart/>
@@ -144,7 +133,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   shipmentDetailsBG: {
-    width: '80%',
+    width: '90%',
     height: '100%',
     borderRadius: 10,
     elevation: 6, 

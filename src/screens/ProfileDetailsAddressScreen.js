@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity } fro
 import SafeAreaAndroid from '../components/SafeViewAndroid';
 import BackBotton from '../components/Buttons/BackButton';
 import { LinearGradient } from 'expo-linear-gradient';
+import Header from '../components/Header';
 
 export default function OrdersScreen() {
 
@@ -13,18 +14,7 @@ export default function OrdersScreen() {
     return (
         <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
             <View style={styles.container}>
-                <View style={styles.header}>
-                    <View style={styles.backButtonContainer}>
-                        <View style={styles.backButton}>
-                            <BackBotton/>
-                        </View>
-                    </View>
-                    <View style={styles.titleContainer}>
-                        <Text style={styles.title}>HELLO!</Text>
-                    </View>
-                    <View style={styles.spaceToCenterContainer}>
-                    </View>
-                </View>
+            <Header Title='ADDRESS'/>
                 <View style={styles.widgetContainer}>
                     <View style={styles.widgetContainer2}>
                         <LinearGradient

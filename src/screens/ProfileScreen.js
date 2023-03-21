@@ -3,8 +3,11 @@ import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Image } from 'r
 import SafeAreaAndroid from '../components/SafeViewAndroid';
 import BackBotton from '../components/Buttons/BackButton';
 import { LinearGradient } from 'expo-linear-gradient';
+import Header from '../components/Header';
 
-export default function ProfileScreen() {
+export default function ProfileScreen(props) {
+
+    const {navigation}=props;
 
     const handlePress = () => {
         console.log('Button pressed');
@@ -13,18 +16,7 @@ export default function ProfileScreen() {
     return (
         <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
             <View style={styles.container}>
-                <View style={styles.header}>
-                    <View style={styles.backButtonContainer}>
-                        <View style={styles.backButton}>
-                            <BackBotton/>
-                        </View>
-                    </View>
-                    <View style={styles.titleContainer}>
-                        <Text style={styles.title}>HELLO!</Text>
-                    </View>
-                    <View style={styles.spaceToCenterContainer}>
-                    </View>
-                </View>
+            <Header Title='PROFILE'/>
                 <View style={styles.pfpContainer}>
                     <View style={styles.coverImageContainer}>
                         <Image resizeMode="contain" style={styles.coverImage} source={require('../../assets/images/cover.png')} />
@@ -35,19 +27,19 @@ export default function ProfileScreen() {
                 </View>
                 <View style={styles.buttonsProfileContainer}>
                     <View style={styles.buttonsProfileFirstRow}>
-                        <TouchableOpacity style={styles.userButton} onPress={handlePress}>
+                        <TouchableOpacity style={styles.userButton} onPress={() => navigation.navigate('ProfileDetails')}>
                             <Text style={styles.userButtonText}>Profile Details</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.userButton} onPress={handlePress}>
+                        <TouchableOpacity style={styles.userButton} onPress={() => navigation.navigate('Orders')}>
                             <Text style={styles.userButtonText}>Orders</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.buttonsProfileSecondRow}>
-                        <TouchableOpacity style={styles.userButton} onPress={handlePress}>
+                        <TouchableOpacity style={styles.userButton} onPress={() => navigation.navigate('WishList')}>
                             <Text style={styles.userButtonText}>Wishlist</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.userButton} onPress={handlePress}>
-                            <Text style={styles.userButtonText}>Payments</Text>
+                        <TouchableOpacity style={styles.userButton} onPress={() => navigation.navigate('Payment')}>
+                            <Text style={styles.userButtonText}>Payment</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -114,14 +106,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     backButtonContainer: {
-        flex: 0.7,
+        flex: 0.5,
         alignItems: 'center',
     },
     backButton: {
     },
     titleContainer: {
-        flex: 1.1,
-        alignItems: 'center',
+        flex: 1.5,
+        alignItems: 'flex-start',
     },
     title: {
         fontFamily: 'coco-goose',

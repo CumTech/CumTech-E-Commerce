@@ -5,24 +5,15 @@ import SafeViewAndroid from '../components/SafeViewAndroid';
 import BackBotton from '../components/Buttons/BackButton';
 import Cards from '../components/Cards';
 import AddCardButton from '../components/Buttons/AddCardButton';
+import Header from '../components/Header';
+
 // import styles from '../components/styles/PaymentsStyles';
 
 export default function PaymentsScreen() {
   return (
     <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
       <View style={styles.container}>
-        <View style={styles.header}>
-          <View style={styles.backButtonContainer}>
-            <View style={styles.backButton}>
-              <BackBotton/>
-            </View>
-          </View>
-          <View style={styles.titleContainer}>
-            <Text style={styles.title}>CARDS</Text>
-          </View>
-          <View style={styles.spaceToCenterContainer}>
-          </View>
-        </View>
+      <Header Title='WALLET'/>
         <ScrollView>
           <View style={styles.scrollContainer}>
             <Cards/>

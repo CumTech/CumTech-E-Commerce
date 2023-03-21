@@ -4,10 +4,14 @@ import { ScrollView, View, Text, SafeAreaView, StyleSheet, Image, TouchableOpaci
 import SafeViewAndroid from '../components/SafeViewAndroid';
 import ProductHome from '../components/Products/ProductHome';
 import BackButton from '../components/Buttons/BackButton';
+import { LinearGradient } from 'expo-linear-gradient';
 import CartButton from '../components/Buttons/CartButton';
 import Counter from '../components/Counter';
 
-export default function App() {
+export default function App(props) {
+
+  const {navigation} = props;
+
 
   return (
     <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
@@ -23,7 +27,7 @@ export default function App() {
           </View>
         <View style={styles.cartContainer}>
           <View style={styles.cartButtonContainer}>
-            <CartButton/>
+          <CartButton/>
           </View>
           <View style={styles.cartCounterContainer}>
             <Counter/>
@@ -81,6 +85,7 @@ const styles = StyleSheet.create({
 
   },
   backButtonContainer:{
+    opacity: 0,
     flex: 0.7,
     alignItems: 'center',
   },
@@ -93,7 +98,7 @@ const styles = StyleSheet.create({
   },
   titleText:{
     fontFamily: 'coco-goose',
-    fontSize: 48,
+    fontSize: 40,
   },
   cartContainer:{
     flex: 0.7,
@@ -120,5 +125,23 @@ const styles = StyleSheet.create({
     paddingHorizontal: '3%', //Para que la ScrollView tenga un espacio lateral para hacer scroll
     paddingTop: 10, //Para que la ScrollView tenga un espacio superior para hacer scroll
     paddingBottom: 10, //Para que la ScrollView tenga un espacio inferior para hacer scroll
+  },
+
+  containerCartButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 10,
+    elevation: 6,
+  },
+  cartButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  icon: {
+    height: '70%',
+    width: '100%',
   },
 });

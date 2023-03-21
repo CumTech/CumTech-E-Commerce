@@ -3,20 +3,20 @@ import React from 'react'
 import SafeAreaAndroid from '../components/SafeViewAndroid';
 import BackBotton from '../components/Buttons/BackButton';
 import { LinearGradient } from 'expo-linear-gradient';
+import Header from '../components/Header';
 
-export default function ProfileDetailsScreen() {
+
+export default function ProfileDetailsScreen(props) {
+
+    const {navigation} = props;
+
     const handlePress = () => {
         console.log('Button Pressed');
     };
     return (
         <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
             <View style={styles.container}>
-                <View style={styles.header}>
-                    <View style={styles.buttonBackContainer}>
-                        <BackBotton style={styles.buttonBack}/>
-                    </View>
-                    <Text style={styles.title}>Hello!</Text>
-                </View>
+            <Header Title='PROFILE'/>
             <View style={styles.pfpImagesContainer}>
                 <View style={styles.coverImageContainer}>
                     <Image resizeMode="contain" style={styles.coverImage} source={require('../../assets/images/cover.png')} />
@@ -77,7 +77,7 @@ export default function ProfileDetailsScreen() {
                             start={{ x: 0, y: 1 }}
                             end={{ x: 0, y: 0 }}
                         >
-                            <TouchableOpacity style={styles.buttonAddressOrange} onPress={handlePress}>
+                            <TouchableOpacity style={styles.buttonAddressOrange} onPress={()=> navigation.navigate('ProfileAddress')}>
                                 <View style={styles.addressButtomImgContainer}>
                                     <Image resizeMode="contain" style={styles.icon} source={require('../../assets/icons/right-arrow.png')} />
                                 </View>
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
         left: 45,
     },
     title: { 
-        fontSize: 48,
+        fontSize: 24,
         fontFamily: 'coco-goose',
     },
 //-------------------------Contenedor Imagenes-------------------------------------------------//

@@ -5,9 +5,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 const BackButton = () => {
   const navigation = useNavigation();
-  const handlePress = () => {
-    console.log('Back button pressed');
-  };
 
   return (
     <LinearGradient
@@ -18,7 +15,7 @@ const BackButton = () => {
     >
       <TouchableOpacity
         style={styles.button}
-        onPress={handlePress} 
+        onPress={() => navigation.goBack()}
       >
         <Image resizeMode="contain" style={styles.icon} source={require('../../../assets/icons/left-arrow.png')} />
       </TouchableOpacity>

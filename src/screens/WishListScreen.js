@@ -3,6 +3,7 @@ import { SafeAreaView, StyleSheet, Text, ScrollView,View, TouchableOpacity } fro
 import ProductWishlist from '../components/Products/ProductWishList';
 import BackBotton from '../components/Buttons/BackButton';
 import SafeAreaAndroid from '../components/SafeViewAndroid';
+import Header from '../components/Header';
 
 export default function WishListScreen(props) {
   const { navigation } = props;
@@ -17,18 +18,7 @@ export default function WishListScreen(props) {
   return (
     <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
       <View style={styles.container}>
-        <View style={styles.header}>
-          <View style={styles.backButtonContainer}>
-            <View style={styles.backButton}>
-              <BackBotton/>
-            </View>
-          </View>
-          <View style={styles.titleContainer}>
-            <Text style={styles.title}>WISH</Text>
-          </View>
-          <View style={styles.spaceToCenterContainer}>
-          </View>
-        </View>
+      <Header Title='WISHLIST'/>
       <ScrollView>
         <View style={styles.scrollContainer}>
           <ProductWishlist/>
