@@ -1,11 +1,11 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Image} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
+
 
 const CartButton = () => {
-  const handlePress = () => {
-    console.log('Cart button pressed');
-  };
+  const navigation = useNavigation();
 
   return (
     <LinearGradient
@@ -16,9 +16,9 @@ const CartButton = () => {
     >
       <TouchableOpacity
         style={styles.button}
-        onPress={handlePress} 
+        onPress={()=> navigation.navigate('Carrito')}
       >
-        <Image resizeMode="contain" style={styles.icon} source={require('../../../assets/icons/cart-white.png')} />
+        <Image resizeMode="contain" style={styles.icon} source={require('../../../assets/icons/cart-black.png')} />
       </TouchableOpacity>
     </LinearGradient>
   );
