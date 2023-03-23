@@ -1,12 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Image } from 'react-native'
 import SafeAreaAndroid from '../components/SafeViewAndroid';
 import BackBotton from '../components/Buttons/BackButton';
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header';
-
+import { AuthContext } from '../AuthContext';
 export default function ProfileScreen(props) {
-
+    const {logout} = useContext(AuthContext);
     const {navigation}=props;
 
     const handlePress = () => {
@@ -81,7 +81,7 @@ export default function ProfileScreen(props) {
                         start={{ x: 0, y: 1 }}
                         end={{ x: 0, y: 0 }}
                     >
-                        <TouchableOpacity style={styles.signOutButton} onPress={() => navigation.navigate('AuthNavigation')}>
+                        <TouchableOpacity style={styles.signOutButton} onPress={()=> {logout()}}>
                             <Text style={styles.signOutText}>Sign Out</Text>
                         </TouchableOpacity>
                     </LinearGradient>

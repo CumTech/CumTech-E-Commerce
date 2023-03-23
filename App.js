@@ -1,9 +1,9 @@
 import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
 import { Text} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import NavigationTab from './src/navigation/NavigationTab';
+import AppNav from './src/navigation/AppNav'
 import * as Font from 'expo-font';
+import {AuthProvider} from './src/AuthContext'
 
 export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false);
@@ -24,8 +24,8 @@ export default function App() {
     return <Text>Loading...</Text>;
   }
   return (
-    <NavigationContainer>
-      <NavigationTab />
-    </NavigationContainer>
+    <AuthProvider>
+      <AppNav/>
+    </AuthProvider>
   );
 }

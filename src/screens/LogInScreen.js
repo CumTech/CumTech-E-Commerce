@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
 import LogInButton from '../components/Buttons/NextButton';
+import { AuthContext } from '../AuthContext';
 
 export default function App(props) {
-
+  const {login} = useContext(AuthContext);
   const { navigation } = props;
 
   const goToRegister = () => {
@@ -28,11 +29,12 @@ export default function App(props) {
             <Text style={styles.textInput}>Password</Text>
             <TextInput secureTextEntry={true} style={[styles.input, {marginBottom: 3, }]}/>
             <Text style={[{fontSize:10, alignSelf: 'flex-end', color: '#8f8f8f'}]}>Forgot your password?</Text>
+            
           </View>
         </View>
         <View style={styles.centerContainer}>
           <Text style={styles.buttonNextText}>Log In</Text>
-          <LogInButton />
+          <LogInButton onPress={()=> {login()}} />
         </View>
         <View style={styles.bottomContainer}>
           <Text style={styles.footerText}>Don't have an account?</Text>
