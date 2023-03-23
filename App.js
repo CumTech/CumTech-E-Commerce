@@ -5,7 +5,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import NavigationTab from './src/navigation/NavigationTab';
 import * as Font from 'expo-font';
 
-
 export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false);
 
@@ -30,4 +29,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-

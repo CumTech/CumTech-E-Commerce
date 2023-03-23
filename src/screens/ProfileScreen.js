@@ -55,7 +55,7 @@ export default function ProfileScreen(props) {
                                 <Text style={styles.orderDetailsTextRight}>My orders</Text>
                             </View>
                             <View style={styles.orderDetailsTitleLeft}>
-                                <TouchableOpacity style={styles.orderDetailsButton} onPress={handlePress}>
+                                <TouchableOpacity style={styles.orderDetailsButton} onPress={() => navigation.navigate('Orders')}>
                                     <Text style={styles.orderDetailsTextLeft}>See All</Text>
                                 </TouchableOpacity>
                             </View>
@@ -81,7 +81,7 @@ export default function ProfileScreen(props) {
                         start={{ x: 0, y: 1 }}
                         end={{ x: 0, y: 0 }}
                     >
-                        <TouchableOpacity style={styles.signOutButton} onPress={handlePress}>
+                        <TouchableOpacity style={styles.signOutButton} onPress={() => navigation.navigate('AuthNavigation')}>
                             <Text style={styles.signOutText}>Sign Out</Text>
                         </TouchableOpacity>
                     </LinearGradient>

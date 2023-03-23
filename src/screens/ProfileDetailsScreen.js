@@ -110,23 +110,6 @@ const styles = StyleSheet.create({
         height: '100%',
         backgroundColor: '#FFF7ED',
     },
-//-------------------------Contenedor Header-----------------------------------------------------//
-    header: {
-        // flex: 0.44,
-        height: 80,
-        justifyContent: 'center',
-        alignItems: 'center',
-        // backgroundColor: '#8F00FF',
-    },
-    buttonBackContainer: {
-        position: 'absolute',
-        top: 20,
-        left: 45,
-    },
-    title: { 
-        fontSize: 24,
-        fontFamily: 'coco-goose',
-    },
 //-------------------------Contenedor Imagenes-------------------------------------------------//
     pfpImagesContainer: {
         height: 265,
@@ -161,6 +144,7 @@ const styles = StyleSheet.create({
         height: '100%',
         borderRadius: 50,
     },
+    //540
 //-------------------------Contenedor Inputs-------------------------------------------------//
     inputContainerSmall: {
         height: 146,
@@ -169,11 +153,12 @@ const styles = StyleSheet.create({
     inputLeft: {
         flex: 1,
         flexDirection: 'column',
-        paddingLeft: 35,
+        paddingLeft: '7%',
     },
     inputRight: {
         flex: 1,
         flexDirection: 'column',
+        paddingLeft: '2%',
     },
     inputTitleSmall: {
         fontFamily: 'coco-goose',
@@ -196,8 +181,8 @@ const styles = StyleSheet.create({
     },
     inputContainerLarge: {
         height: 201,
-        paddingRight: 35,
-        paddingLeft: 35,
+        // paddingRight: '7%',
+        paddingLeft: '7%',
     },
     inputTitleLarge: {
         fontFamily: 'coco-goose',
