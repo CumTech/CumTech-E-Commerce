@@ -3,7 +3,7 @@ import React, {useContext} from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import NavigationTab from './NavigationTab';
 import AuthNavigation from  './AuthNavigation'
-import { AuthContext } from '../AuthContext';
+import { AuthContext } from '../Contexts/AuthContext';
 
 export default function AppNav() {
     const {isLoading, userToken} = useContext(AuthContext);

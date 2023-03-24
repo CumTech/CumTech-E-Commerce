@@ -1,22 +1,37 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {createContext, useState, useEffect} from 'react';
+import axios from 'axios';
+import { API_URL } from '../Config';
 
 export const AuthContext = createContext();
-
 export const AuthProvider = ({children}) => {
     const [isLoading, setIsLoading ] = useState(false);
     const [userToken, setUserToken] =useState(null);
+    const [userInfo, setUserInfo] = useState(null);
 
-    const login = () =>{
+    const login = async (email, password) =>{
         setIsLoading(true);
-        setUserToken('ndsbidsb');
-        AsyncStorage.setItem('userToker', 'ndsbidsb');
+        await axios.post(`${API_URL}/login`, {
+            email,
+            password
+        })
+        .then(res => {
+            console.log(res.data.token);
+            let userInfo = res.data;
+            setUserInfo(userInfo);
+            setUserToken(userInfo.token)
+            AsyncStorage.setItem('userToken', userInfo.token);
+            AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+        }).catch(e => {
+            console.log(e);
+        })
         setIsLoading(false);
     }
     const logout = () =>{
         setIsLoading(true);
         setUserToken(null);
-        AsyncStorage.removeItem('userToker');
+        AsyncStorage.removeItem('userToken');
+        AsyncStorage.removeItem('userInfo');
         setIsLoading(false);
     }
 
@@ -24,8 +39,16 @@ export const AuthProvider = ({children}) => {
         try{
             setIsLoading(true);
             let userToken = await AsyncStorage.getItem('userToken');
-            setUserToken(userToken);
+            let userInfo = await AsyncStorage.getItem('userInfo');
+            userInfo = JSON.parse(userInfo);
+
+            if (userInfo){
+                setUserToken(userToken);
+                setUserInfo(userInfo);
+            }
+
             setIsLoading(false);
+
         }catch(e){
             console.log(`is Logged error: ${e}`);
         }

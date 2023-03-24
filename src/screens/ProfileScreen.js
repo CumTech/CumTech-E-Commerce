@@ -4,7 +4,7 @@ import SafeAreaAndroid from '../components/SafeViewAndroid';
 import BackBotton from '../components/Buttons/BackButton';
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header';
-import { AuthContext } from '../AuthContext';
+import { AuthContext } from '../Contexts/AuthContext';
 export default function ProfileScreen(props) {
     const {logout} = useContext(AuthContext);
     const {navigation}=props;
