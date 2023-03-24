@@ -13,6 +13,7 @@ const styles = {
         width: '80%',
     },
     imageProductContainer:{
+        backgroundColor: 'white',
         flex: 2.3,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,

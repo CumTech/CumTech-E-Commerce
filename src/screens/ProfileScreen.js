@@ -63,12 +63,12 @@ export default function ProfileScreen(props) {
                         <View style={styles.orderDetailsHistory}>
                             <View style={styles.orderDetailsLeft}>
                                 <View style={styles.orderDetailsImagenContainer}>
-                                    <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/aguacate.png')} />
+                                    <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/avocado.png')} />
                                 </View>
                             </View>
                             <View style={styles.orderDetailsRight}>
                                 <View style={styles.orderDetailsImagenContainer}>
-                                    <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/aguacate.png')} />
+                                    <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/avocado.png')} />
                                 </View>
                             </View>
                         </View>
@@ -248,6 +248,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     orderDetailsImagenContainer: {
+        backgroundColor: '#FFFFFF',
         width: '80%',
         height: '70%',
         borderRadius: 15,

@@ -5,6 +5,7 @@ const styles = {
         marginBottom: '4%',
     },
     imageProductContainer:{
+        backgroundColor: 'white',
         flex: 0.8,
         height: '100%',
         justifyContent: 'center',

@@ -1,7 +1,6 @@
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, TextInput, Image } from 'react-native'
 import React from 'react'
 import SafeAreaAndroid from '../components/SafeViewAndroid';
-import BackBotton from '../components/Buttons/BackButton';
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header';
 

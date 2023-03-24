@@ -9,7 +9,7 @@ const ProductHome = () => {
         <View style={styles.container}>
             <View style={styles.ProductContainer}>
                 <View style={styles.imageProductContainer}>
-                    <Image resizeMode="contain" style = {styles.image}source={require('../../../assets/images/aguacate.png')}/>
+                    <Image resizeMode="contain" style = {styles.image}source={require('../../../assets/images/avocado.png')}/>
                 </View>
                 <View style = {styles.informationContainer}>
                     <View style={styles.topProductContainer}>
