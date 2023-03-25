@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Text} from 'react-native';
 import AppNav from './src/navigation/AppNav'
 import * as Font from 'expo-font';
-import {AuthProvider} from './src/AuthContext'
+import {AuthProvider} from './src/Contexts/AuthContext'
 
 export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false);

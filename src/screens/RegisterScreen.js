@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
 import LogInButton from '../components/Buttons/NextButton';
 
+import { AuthContext } from '../Contexts/AuthContext';
 
 export default function App(props) {
+  const {register} = useContext(AuthContext);
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
   const { navigation } = props;
 
   const goToLogin = () => {
@@ -19,17 +24,20 @@ export default function App(props) {
             <Text style={styles.titleBig}>Sign Up!</Text>
           </View>
           <View style={styles.inputsContainer}>
+
             <Text style={styles.textInput}>Name</Text>
-            <TextInput style={styles.input}/>
+            <TextInput style={styles.input} value={name} onChangeText={text => setName(text)}/>
+
             <Text style={styles.textInput}>Email</Text>
-            <TextInput style={styles.input}/>
+            <TextInput style={styles.input} value={email} onChangeText={text => setEmail(text)}/>
+
             <Text style={styles.textInput}>Password</Text>
-            <TextInput secureTextEntry={true} style={styles.input} />
+            <TextInput secureTextEntry={true} style={styles.input} value={password} onChangeText={text => setPassword(text)} />
           </View>
         </View>
         <View style={styles.centerContainer}>
           <Text style={styles.buttonNextText}>Create</Text>
-          <LogInButton />
+          <LogInButton onPress={()=> { register(name, email, password)} }/>
         </View>
         <View style={[styles.bottomContainer]}>
           <Text style={styles.footerText}>Already have an account?</Text>
