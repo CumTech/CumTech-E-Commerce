@@ -3,6 +3,8 @@ import React from 'react'
 import SafeAreaAndroid from '../components/SafeViewAndroid';
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 
 
 export default function ProfileDetailsScreen(props) {
@@ -11,95 +13,139 @@ export default function ProfileDetailsScreen(props) {
     const handlePress = () => {
         console.log('Button Pressed');
     };
+
+    const validationSchema = Yup.object().shape({
+        name: Yup.string()
+            .min(4, 'Too Short!')
+            .max(50, 'Too Long!'),
+        lastName: Yup.string()
+            .min(4, 'Too Short!')
+            .max(50, 'Too Long!'),
+        age: Yup.number()
+            .min(14, 'Age must be at least 14 years old')
+            .max(99, 'Age must be less than 99 years old'),
+        username: Yup.string()
+            .min(4, 'Too Short!')
+            .max(50, 'Too Long!'),
+        email: Yup.string()
+            .email('Email is invalid')
+            .required('Email is required'),
+        password: Yup.string()
+            .min(6, 'Password must be at least 6 characters')
+            .required('Password is required'),
+    });
+
     return (
-        <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
-            <View style={styles.container}>
-            <Header Title='PROFILE'/>
-            <View style={styles.pfpImagesContainer}>
-                <View style={styles.coverImageContainer}>
-                    <Image style={styles.coverImage} source={require('../../assets/images/pfpcover.jpg')} />
-                </View>
-                <View style={styles.profileImage}>
-                    <Image style={styles.pfpImage} source={require('../../assets/images/pfp.png')} />
-                </View>
-            </View>
-            <View style={styles.inputContainerSmall}>
-                <View style={styles.inputLeft}>
-                    <Text style={styles.inputTitleSmall}>
-                        Name
-                    </Text>
-                    <TextInput style={styles.inputSmall} placeholder="Name" />
-                    <Text style={styles.inputTitleSmall}>
-                        Age
-                    </Text>
-                    <TextInput style={styles.inputSmall} placeholder="Age" />
-                </View>
-                <View style={styles.inputRight}>
-                    <Text style={styles.inputTitleSmall}>
-                        Last Name
-                    </Text>
-                    <TextInput style={styles.inputSmall} placeholder="Last Name" />
-                    <Text style={styles.inputTitleSmall}>
-                        Username
-                    </Text>
-                    <TextInput style={styles.inputSmall} placeholder="Username" />
-                </View>
-            </View>
-            <View style={styles.inputContainerLarge}>
-                <Text style={styles.inputTitleLarge}>
-                    Email
-                </Text>
-                <TextInput style={styles.inputLarge} placeholder="Email" />
-                <Text style={styles.inputTitleLarge}>
-                    Password
-                </Text>
-                <TextInput style={styles.inputLarge} secureTextEntry={true} />
-                <View style={styles.addressContainer}>
-                    <Text style={styles.inputTitleLarge}>
-                        Address
-                    </Text>
-                    <View style={styles.buttonAddressContainer}>
-                        <View style={styles.buttonAddressWhite}>
-                            <View style={styles.addressButtomImgContainer}>
-                                <Image resizeMode="contain" style={styles.buttonAddressIcon} source={require('../../assets/icons/location-black.png')} />
-                            </View>
-                            <View style={styles.buttonAddressTextContainer}>
-                                <Text style={styles.buttonAddressText}>
-                                    Residential Address
-                                </Text>
-                            </View>
-                        </View>
-                        <LinearGradient
-                            colors={['#F77019', '#FAD25C']}
-                            style={ styles.buttonAddressBG}
-                            start={{ x: 0, y: 1 }}
-                            end={{ x: 0, y: 0 }}
-                        >
-                            <TouchableOpacity style={styles.buttonAddressOrange} onPress={()=> navigation.navigate('ProfileAddress')}>
-                                <View style={styles.addressButtomImgContainer}>
-                                    <Image resizeMode="contain" style={styles.icon} source={require('../../assets/icons/right-arrow.png')} />
-                                </View>
-                            </TouchableOpacity>
-                        </LinearGradient>
+        <Formik initialValues={{
+            name: '',
+            lastName: '',
+            age: '',
+            username: '',
+            email: '',
+            password: '',
+        }}
+        validateYupSchema={validationSchema}
+        >
+            
+        {({values, errors, touched, handleChange, setFieldTouched, isValid, handleBlur,}) => (
+            <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
+                <View style={styles.container}>
+                <Header Title='PROFILE'/>
+                <View style={styles.pfpImagesContainer}>
+                    <View style={styles.coverImageContainer}>
+                        <Image style={styles.coverImage} source={require('../../assets/images/pfpcover.jpg')} />
+                    </View>
+                    <View style={styles.profileImage}>
+                        <Image style={styles.pfpImage} source={require('../../assets/images/pfp.png')} />
                     </View>
                 </View>
-            </View>
-            <View style={styles.changeButtonContainer}>
-                <LinearGradient
-                    colors={['#F77019', '#FAD25C']}
-                    style={ styles.changeButtonBG}
-                    start={{ x: 0, y: 1 }}
-                    end={{ x: 0, y: 0 }}
-                >
-                    <TouchableOpacity style={styles.changeButton} onPress={handlePress}>
-                        <Text style={styles.changeButtonText}>
-                            Change
+                <View style={styles.inputContainerSmall}>
+                    <View style={styles.inputLeft}>
+                        <Text style={styles.inputTitleSmall}>
+                            Name
                         </Text>
-                    </TouchableOpacity>
-                </LinearGradient>
+                        <TextInput 
+                        style={styles.inputSmall} 
+                        placeholder="Name" 
+                        value={values.name} 
+                        onChangeText={handleChange('name')}
+                        />
+                        {errors.name && (
+                            <Text style={{ fontSize: 10, color: 'red' }}>{errors.name}</Text>
+                        )}
+                        <Text style={styles.inputTitleSmall}>
+                            Age
+                        </Text>
+                        <TextInput style={styles.inputSmall} placeholder="Age" />
+                    </View>
+                    <View style={styles.inputRight}>
+                        <Text style={styles.inputTitleSmall}>
+                            Last Name
+                        </Text>
+                        <TextInput style={styles.inputSmall} placeholder="Last Name" />
+                        <Text style={styles.inputTitleSmall}>
+                            Username
+                        </Text>
+                        <TextInput style={styles.inputSmall} placeholder="Username" />
+                    </View>
+                </View>
+                <View style={styles.inputContainerLarge}>
+                    <Text style={styles.inputTitleLarge}>
+                        Email
+                    </Text>
+                    <TextInput style={styles.inputLarge} placeholder="Email" />
+                    <Text style={styles.inputTitleLarge}>
+                        Password
+                    </Text>
+                    <TextInput style={styles.inputLarge} secureTextEntry={true} />
+                    <View style={styles.addressContainer}>
+                        <Text style={styles.inputTitleLarge}>
+                            Address
+                        </Text>
+                        <View style={styles.buttonAddressContainer}>
+                            <View style={styles.buttonAddressWhite}>
+                                <View style={styles.addressButtomImgContainer}>
+                                    <Image resizeMode="contain" style={styles.buttonAddressIcon} source={require('../../assets/icons/location-black.png')} />
+                                </View>
+                                <View style={styles.buttonAddressTextContainer}>
+                                    <Text style={styles.buttonAddressText}>
+                                        Residential Address
+                                    </Text>
+                                </View>
+                            </View>
+                            <LinearGradient
+                                colors={['#F77019', '#FAD25C']}
+                                style={ styles.buttonAddressBG}
+                                start={{ x: 0, y: 1 }}
+                                end={{ x: 0, y: 0 }}
+                            >
+                                <TouchableOpacity style={styles.buttonAddressOrange} onPress={()=> navigation.navigate('ProfileAddress')}>
+                                    <View style={styles.addressButtomImgContainer}>
+                                        <Image resizeMode="contain" style={styles.icon} source={require('../../assets/icons/right-arrow.png')} />
+                                    </View>
+                                </TouchableOpacity>
+                            </LinearGradient>
+                        </View>
+                    </View>
+                </View>
+                <View style={styles.changeButtonContainer}>
+                    <LinearGradient
+                        colors={['#F77019', '#FAD25C']}
+                        style={ styles.changeButtonBG}
+                        start={{ x: 0, y: 1 }}
+                        end={{ x: 0, y: 0 }}
+                    >
+                        <TouchableOpacity style={styles.changeButton} onPress={handlePress}>
+                            <Text style={styles.changeButtonText}>
+                                Change
+                            </Text>
+                        </TouchableOpacity>
+                    </LinearGradient>
+                </View>
             </View>
-        </View>
-    </SafeAreaView>
+        </SafeAreaView>
+    )}
+    </Formik>
 )};
 
 const styles = StyleSheet.create({
@@ -147,6 +193,7 @@ const styles = StyleSheet.create({
     inputContainerSmall: {
         height: 146,
         flexDirection: 'row',
+        marginBottom: 20,
     },
     inputLeft: {
         flex: 1,
@@ -174,7 +221,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderColor: 'transparent',
         textAlign: 'center',
-        marginBottom: 9,
+        marginBottom: 20,
         elevation: 4,
     },
     inputContainerLarge: {

@@ -1,18 +1,15 @@
 import React, {useContext} from 'react'
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Image } from 'react-native'
 import SafeAreaAndroid from '../components/SafeViewAndroid';
-import BackBotton from '../components/Buttons/BackButton';
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header';
 import { AuthContext } from '../Contexts/AuthContext';
+
+
 export default function ProfileScreen(props) {
     const {logout} = useContext(AuthContext);
     const {navigation}=props;
 
-    const handlePress = () => {
-        console.log('Button pressed');
-    }
-    
     return (
         <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
             <View style={styles.container}>

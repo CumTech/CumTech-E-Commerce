@@ -38,28 +38,6 @@ export default function App() {
           <ProductHome/>
           <ProductHome/>
           <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
         </View>
       </ScrollView>
       </View>
