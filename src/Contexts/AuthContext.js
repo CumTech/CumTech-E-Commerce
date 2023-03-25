@@ -53,14 +53,34 @@ export const AuthProvider = ({children}) => {
             console.log(`is Logged error: ${e}`);
         }
     }
+    const register = async (name, email, password) =>{
+        setIsLoading(true);
+        console.log(email)
+        console.log(password)
+        await axios.post(`${API_URL}/register`, {
+            email,
+            password,
+            name
+        })
+        .then(() => {
+            login(email, password);
+        }).catch(e => {
+            console.log(e);
+        })
+        setIsLoading(false);
+    }
 
     useEffect (()=>{
         isLoggedIn();
     },[]);
 
+    
+
+
+
     return (
 
-        <AuthContext.Provider value={{login, logout, isLoading, userToken}}>
+        <AuthContext.Provider value={{login, logout, isLoading, userToken, register}}>
             {children}            
         </AuthContext.Provider>
 
