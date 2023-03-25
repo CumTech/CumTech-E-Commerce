@@ -4,11 +4,7 @@ import styles from '../styles/NextButtonStyles';
 import { LinearGradient } from 'expo-linear-gradient';
 
 
-const NextButton = () => {
-
-  const handlePress = () => {
-    console.log('Next button pressed');
-  };
+const NextButton = ({onPress}) => {
 
   return (
     <LinearGradient
@@ -18,7 +14,7 @@ const NextButton = () => {
       end={{ x: 0, y: 0 }}
     >
       <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={handlePress}>
+        <TouchableOpacity style={styles.button} onPress={onPress}>
           <Image resizeMode="contain" style={styles.arrow} source={require('../../../assets/images/arrow.png')} />    
         </TouchableOpacity>
       </View>

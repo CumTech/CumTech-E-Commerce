@@ -20,7 +20,6 @@ export default function NavigationProfileStack() {
       <Stack.Screen name="Orders" component={Orders} />
       <Stack.Screen name="Payment" component={Payment} />
       <Stack.Screen name="ProfileAddress" component={ProfileAddress} />
-      <Stack.Screen name="AuthNavigation" component={AuthNavigation} />
     </Stack.Navigator>
   );
 }

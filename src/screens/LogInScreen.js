@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
 import LogInButton from '../components/Buttons/NextButton';
+import { AuthContext } from '../Contexts/AuthContext';
 
 export default function App(props) {
-
+  const {login} = useContext(AuthContext);
   const { navigation } = props;
-
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
   const goToRegister = () => {
     navigation.navigate('Register');
   }
@@ -23,16 +25,20 @@ export default function App(props) {
             <Text style={styles.titleLittle}>Sign in to your account</Text>
           </View>
           <View style={styles.inputsContainer}>
+            
             <Text style={styles.textInput}>Email</Text>
-            <TextInput style={styles.input}/>
+            <TextInput style={styles.input} value={email} onChangeText={text => setEmail(text)}/>
+
             <Text style={styles.textInput}>Password</Text>
-            <TextInput secureTextEntry={true} style={[styles.input, {marginBottom: 3, }]}/>
+            <TextInput secureTextEntry={true} style={[styles.input, {marginBottom: 3, }]} value={password} onChangeText={text => setPassword(text)}/>
+            
             <Text style={[{fontSize:10, alignSelf: 'flex-end', color: '#8f8f8f'}]}>Forgot your password?</Text>
+            
           </View>
         </View>
         <View style={styles.centerContainer}>
           <Text style={styles.buttonNextText}>Log In</Text>
-          <LogInButton />
+          <LogInButton onPress={()=> {login(email, password)}} />
         </View>
         <View style={styles.bottomContainer}>
           <Text style={styles.footerText}>Don't have an account?</Text>
