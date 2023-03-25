@@ -4,15 +4,10 @@ import LogInButton from '../components/Buttons/NextButton';
 
 
 export default function App(props) {
-
   const { navigation } = props;
 
   const goToLogin = () => {
     navigation.navigate('LogIn');
-  }
-
-  const handlePress = () => {
-    console.log('Button pressed');
   }
 
   return (

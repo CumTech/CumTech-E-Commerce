@@ -17,10 +17,10 @@ export default function ProfileDetailsScreen(props) {
             <Header Title='PROFILE'/>
             <View style={styles.pfpImagesContainer}>
                 <View style={styles.coverImageContainer}>
-                    <Image resizeMode="contain" style={styles.coverImage} source={require('../../assets/images/cover.png')} />
+                    <Image style={styles.coverImage} source={require('../../assets/images/pfpcover.jpg')} />
                 </View>
                 <View style={styles.profileImage}>
-                    <Image resizeMode="contain" style={styles.pfpImage} source={require('../../assets/images/pfp.png')} />
+                    <Image style={styles.pfpImage} source={require('../../assets/images/pfp.png')} />
                 </View>
             </View>
             <View style={styles.inputContainerSmall}>

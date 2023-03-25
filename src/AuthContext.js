@@ -9,14 +9,14 @@ export const AuthProvider = ({children}) => {
 
     const login = () =>{
         setIsLoading(true);
-        setUserToken('ndsbidsb');
-        AsyncStorage.setItem('userToker', 'ndsbidsb');
+        setUserToken('eltokenalaverga');
+        AsyncStorage.setItem('userToken', 'eltokenalaverga');
         setIsLoading(false);
     }
     const logout = () =>{
         setIsLoading(true);
         setUserToken(null);
-        AsyncStorage.removeItem('userToker');
+        AsyncStorage.removeItem('userToken');
         setIsLoading(false);
     }
 

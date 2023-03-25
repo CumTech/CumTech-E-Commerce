@@ -1,17 +1,13 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, {useContext} from 'react';
 import { ScrollView, View, Text, SafeAreaView, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import SafeViewAndroid from '../components/SafeViewAndroid';
 import ProductHome from '../components/Products/ProductHome';
 import BackButton from '../components/Buttons/BackButton';
-import { LinearGradient } from 'expo-linear-gradient';
 import CartButton from '../components/Buttons/CartButton';
 import Counter from '../components/Counter';
 
-export default function App(props) {
-
-  const {navigation} = props;
-
+export default function App() {
 
   return (
     <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>

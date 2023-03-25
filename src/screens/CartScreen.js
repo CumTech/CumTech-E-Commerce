@@ -206,6 +206,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  shipmentDetailsButtonTouchable: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   shipmentDetailsButtonTouchableText: {
     fontFamily: 'coco-goose',
     fontSize: 16,

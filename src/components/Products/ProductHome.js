@@ -9,7 +9,7 @@ const ProductHome = () => {
         <View style={styles.container}>
             <View style={styles.ProductContainer}>
                 <View style={styles.imageProductContainer}>
-                    <Image resizeMode="contain" style = {styles.image}source={require('../../../assets/images/avocado.png')}/>
+                    <Image resizeMode="contain" style = {styles.image}source={require('../../../assets/images/pou.webp')}/>
                 </View>
                 <View style = {styles.informationContainer}>
                     <View style={styles.topProductContainer}>
@@ -28,7 +28,7 @@ const ProductHome = () => {
                     </View>
                     <View style={styles.titleProductContainer}>
                         <View style={styles.titleProductTextContainer}>
-                            <Text style={styles.titleProductText}>Aguacates</Text>
+                            <Text style={styles.titleProductText}>Pou Plushie</Text>
                         </View>
                     </View>
                 </View>
