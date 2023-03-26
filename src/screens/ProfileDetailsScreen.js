@@ -1,17 +1,19 @@
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, TextInput, Image } from 'react-native'
-import React from 'react'
+import React, {useContext} from 'react'
 import SafeAreaAndroid from '../components/SafeViewAndroid';
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AuthContext } from '../Contexts/AuthContext';
 
 export default function ProfileDetailsScreen(props) {
     const {navigation} = props;
+    const {userInfo} = useContext(AuthContext);
 
     const handlePress = () => {
-        console.log('Button Pressed');
+        console.log(AsyncStorage.getItem('userInfo'));
     };
 
     const validationSchema = Yup.object().shape({
@@ -67,7 +69,7 @@ export default function ProfileDetailsScreen(props) {
                         <TextInput 
                         style={styles.inputSmall} 
                         placeholder="Name" 
-                        value={values.name} 
+                        value= {userInfo.name}
                         onChangeText={handleChange('name')}
                         />
                         {errors.name && (

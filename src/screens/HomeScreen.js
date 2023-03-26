@@ -1,13 +1,35 @@
 import 'react-native-gesture-handler';
-import React, {useContext} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import { ScrollView, View, Text, SafeAreaView, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import SafeViewAndroid from '../components/SafeViewAndroid';
 import ProductHome from '../components/Products/ProductHome';
 import BackButton from '../components/Buttons/BackButton';
 import CartButton from '../components/Buttons/CartButton';
 import Counter from '../components/Counter';
+import { useFocusEffect } from '@react-navigation/native';
+import axios from 'axios';
 
 export default function App() {
+  const [products, setProducts] = useState([]);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      console.log('hola');
+      axios.get('https://cum-tech-api.vercel.app/product')
+        .then(response => {
+            setProducts(response.data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
+      // Aquí puedes ejecutar cualquier código que desees al enfocar el screen
+      return () => {
+        console.log('La pantalla se desenfocó');
+      };
+    }, [])
+  );
+    
 
   return (
     <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
@@ -32,12 +54,14 @@ export default function App() {
       </View>
       <ScrollView>
         <View style={styles.scrollContainer}>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
-          <ProductHome/>
+        {products.map(product => (
+                <ProductHome 
+                  key={product._id} 
+                  name={product?.name} 
+                  price={product?.price}
+                  img = {product?.urlImage} 
+                />
+            ))}
         </View>
       </ScrollView>
       </View>

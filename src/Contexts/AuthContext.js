@@ -23,6 +23,7 @@ export const AuthProvider = ({children}) => {
             setUserToken(userInfo.token)
             AsyncStorage.setItem('userToken', userInfo.token);
             AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+            
         }).catch(e => {
             console.log(e);
         })
@@ -102,7 +103,7 @@ export const AuthProvider = ({children}) => {
 
     return (
 
-        <AuthContext.Provider value={{login, logout, isLoading, userToken, register}}>
+        <AuthContext.Provider value={{login, logout, isLoading, userToken, register, userInfo}}>
             {children}            
         </AuthContext.Provider>
 
