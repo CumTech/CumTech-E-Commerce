@@ -1,25 +1,22 @@
 import React, {useContext} from 'react'
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Image } from 'react-native'
 import SafeAreaAndroid from '../components/SafeViewAndroid';
-import BackBotton from '../components/Buttons/BackButton';
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header';
 import { AuthContext } from '../Contexts/AuthContext';
+
+
 export default function ProfileScreen(props) {
     const {logout} = useContext(AuthContext);
     const {navigation}=props;
 
-    const handlePress = () => {
-        console.log('Button pressed');
-    }
-    
     return (
         <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
             <View style={styles.container}>
             <Header Title='PROFILE'/>
                 <View style={styles.pfpContainer}>
                     <View style={styles.coverImageContainer}>
-                        <Image resizeMode="contain" style={styles.coverImage} source={require('../../assets/images/cover.png')} />
+                        <Image style={styles.coverImage} source={require('../../assets/images/pfpcover.jpg')} />
                     </View>
                     <View style={styles.profileImage}>
                         <Image resizeMode="contain" style={styles.pfpImage} source={require('../../assets/images/pfp.png')} />
@@ -63,12 +60,12 @@ export default function ProfileScreen(props) {
                         <View style={styles.orderDetailsHistory}>
                             <View style={styles.orderDetailsLeft}>
                                 <View style={styles.orderDetailsImagenContainer}>
-                                    <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/aguacate.png')} />
+                                    <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/avocado.png')} />
                                 </View>
                             </View>
                             <View style={styles.orderDetailsRight}>
                                 <View style={styles.orderDetailsImagenContainer}>
-                                    <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/aguacate.png')} />
+                                    <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/avocado.png')} />
                                 </View>
                             </View>
                         </View>
@@ -248,6 +245,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     orderDetailsImagenContainer: {
+        backgroundColor: '#FFFFFF',
         width: '80%',
         height: '70%',
         borderRadius: 15,

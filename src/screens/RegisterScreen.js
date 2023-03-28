@@ -15,10 +15,6 @@ export default function App(props) {
     navigation.navigate('LogIn');
   }
 
-  const handlePress = () => {
-    console.log('Button pressed');
-  }
-
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../../assets/images/BgLogIn.png')} style={{ flex: 1 }}>

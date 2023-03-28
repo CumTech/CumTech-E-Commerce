@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {createContext, useState, useEffect} from 'react';
 import axios from 'axios';
 import { API_URL } from '../Config';
+import { Alert } from 'react-native';
 
 export const AuthContext = createContext();
 export const AuthProvider = ({children}) => {
@@ -22,6 +23,7 @@ export const AuthProvider = ({children}) => {
             setUserToken(userInfo.token)
             AsyncStorage.setItem('userToken', userInfo.token);
             AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+            
         }).catch(e => {
             console.log(e);
         })
@@ -53,20 +55,41 @@ export const AuthProvider = ({children}) => {
             console.log(`is Logged error: ${e}`);
         }
     }
-    const register = async (name, email, password) =>{
+
+    // const register = async (name, email, password) =>{
+    //     setIsLoading(true);
+    //     console.log(email)
+    //     console.log(password)
+    //     await axios.post(`${API_URL}/register`, {
+    //         email,
+    //         password,
+    //         name
+    //     })
+    //     .then(() => {
+    //         login(email, password);
+    //     }).catch(e => {
+    //         console.log(e);
+    //     })
+    //     setIsLoading(false);
+    // }
+
+    const register = async (name, email, password) => {
         setIsLoading(true);
-        console.log(email)
-        console.log(password)
-        await axios.post(`${API_URL}/register`, {
-            email,
-            password,
-            name
-        })
-        .then(() => {
+        try {
+            const response = await axios.post(`${API_URL}/register`, {
+                name,
+                email,
+                password
+            });
+            const { token } = response.data;
+            setUserToken(token);
+            AsyncStorage.setItem('userToken', token);
+            setUserInfo(response.data);
+            AsyncStorage.setItem('userInfo', JSON.stringify(response.data));
             login(email, password);
-        }).catch(e => {
+        } catch (e) {
             console.log(e);
-        })
+        }
         setIsLoading(false);
     }
 
@@ -80,7 +103,7 @@ export const AuthProvider = ({children}) => {
 
     return (
 
-        <AuthContext.Provider value={{login, logout, isLoading, userToken, register}}>
+        <AuthContext.Provider value={{login, logout, isLoading, userToken, register, userInfo}}>
             {children}            
         </AuthContext.Provider>
 

@@ -1,6 +1,6 @@
 const styles = {
     container:{
-        height: 200,
+        height: 250,
         width: '50%',
         borderColor: '#FFF7ED',
         borderWidth: 1,
@@ -10,10 +10,11 @@ const styles = {
     },
     ProductContainer:{
         flex: 1,
-        width: '80%',
+        width: '95%',
     },
     imageProductContainer:{
-        flex: 2.3,
+        backgroundColor: 'white',
+        flex: 2,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
     },
@@ -70,7 +71,7 @@ const styles = {
         alignItems: 'center',
     },
     titleProductContainer:{
-        flex: 1,
+        flex: 2,
         justifyContent: 'center',
         alignItems: 'center',
     },

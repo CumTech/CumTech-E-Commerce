@@ -5,6 +5,7 @@ const styles = {
         marginBottom: '4%',
     },
     imageProductContainer:{
+        backgroundColor: 'white',
         flex: 0.8,
         height: '100%',
         justifyContent: 'center',
@@ -37,8 +38,8 @@ const styles = {
         elevation: 6,
     },
     titleProductText:{
+        fontFamily: 'coco-goose',
         fontSize: 16,
-        fontWeight: 'bold',
     },
     priceContainer:{
         flex: 1,
@@ -58,11 +59,12 @@ const styles = {
     },
     priceTextDollars:{
         fontSize: 13,
+        fontFamily: 'monda',
         fontWeight: 'bold',
     },
     priceTextNumber:{
         fontSize: 16,
-        fontWeight: 'bold',
+        fontFamily: 'monda',
     },
     amountContainer:{
         flex: 1,

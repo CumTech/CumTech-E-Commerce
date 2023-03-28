@@ -12,10 +12,6 @@ export default function App(props) {
     navigation.navigate('Register');
   }
 
-  const handlePress = () => {
-    console.log('Button pressed');
-  }
-
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../../assets/images/BgLogIn.png')} style={{ flex: 1 }}>
@@ -50,7 +46,6 @@ export default function App(props) {
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
