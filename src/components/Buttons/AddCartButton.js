@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { TouchableOpacity, StyleSheet, Image} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
-const AddCartButton = () => {
+const AddCartButton = ({name, price, img}) => {
+    const [car, setCar] = useState([]);
     const handlePress = () => {
-        console.log('Add to cart button pressed');
+        console.log('se agrego el producto' + name);
     };
 
     return (

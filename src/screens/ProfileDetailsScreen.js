@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, TextInput, Image } from 'react-native'
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import SafeAreaAndroid from '../components/SafeViewAndroid';
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header';
@@ -7,7 +7,8 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AuthContext } from '../Contexts/AuthContext';
-
+import axios from 'axios';
+import { API_URL } from '../Config';
 export default function ProfileDetailsScreen(props) {
     const {navigation} = props;
     const {userInfo} = useContext(AuthContext);
@@ -36,6 +37,31 @@ export default function ProfileDetailsScreen(props) {
             .min(6, 'Password must be at least 6 characters')
             .required('Password is required'),
     });
+
+    const [name, setName ] = useState(userInfo.name);
+    const [lastName, setLastName ] = useState(userInfo.lastName);
+    const [age, setAge ] = useState(userInfo.age);
+    const [password, setPassword ] = useState(userInfo.password);
+    const [email, setEmail ] = useState(userInfo.email);
+
+    const changeProfile = async (name, lastName, age, password, email) => {
+        
+        try {
+            const response = await axios.put(`${API_URL}/user/${userInfo._id}?token=${userInfo.token}`, {
+                name,
+                lastName,
+                age,
+                email,
+                password
+            });
+            // setUserInfo(response.data);
+            // AsyncStorage.setItem('userInfo', JSON.stringify(response.data));
+            console.log(response.status)
+        } catch (e) {
+            console.log(e);
+        }
+        
+    }
 
     return (
         <Formik initialValues={{
@@ -69,8 +95,8 @@ export default function ProfileDetailsScreen(props) {
                         <TextInput 
                         style={styles.inputSmall} 
                         placeholder="Name" 
-                        value= {userInfo.name}
-                        onChangeText={handleChange('name')}
+                        value= {name}
+                        onChangeText={text => setName(text)}
                         />
                         {errors.name && (
                             <Text style={{ fontSize: 10, color: 'red' }}>{errors.name}</Text>
@@ -78,13 +104,23 @@ export default function ProfileDetailsScreen(props) {
                         <Text style={styles.inputTitleSmall}>
                             Age
                         </Text>
-                        <TextInput style={styles.inputSmall} placeholder="Age" />
+                        <TextInput 
+                        style={styles.inputSmall} 
+                        placeholder="Age"
+                        value= {age}
+                        onChangeText={text => setAge(text)}
+                         />
                     </View>
                     <View style={styles.inputRight}>
                         <Text style={styles.inputTitleSmall}>
                             Last Name
                         </Text>
-                        <TextInput style={styles.inputSmall} placeholder="Last Name" />
+                        <TextInput 
+                        style={styles.inputSmall} 
+                        placeholder="Last Name"
+                        value= {lastName}
+                        onChangeText={text => setLastName(text)}
+                         />
                         <Text style={styles.inputTitleSmall}>
                             Username
                         </Text>
@@ -95,11 +131,21 @@ export default function ProfileDetailsScreen(props) {
                     <Text style={styles.inputTitleLarge}>
                         Email
                     </Text>
-                    <TextInput style={styles.inputLarge} placeholder="Email" />
+                    <TextInput 
+                    style={styles.inputLarge} 
+                    placeholder="Email" 
+                    value= {email}
+                    onChangeText={text => setEmail(text)}
+                    />
                     <Text style={styles.inputTitleLarge}>
                         Password
                     </Text>
-                    <TextInput style={styles.inputLarge} secureTextEntry={true} />
+                    <TextInput 
+                    style={styles.inputLarge} 
+                    secureTextEntry={true}
+                    value= {password}
+                    onChangeText={text => setPassword(text)}
+                    />
                     <View style={styles.addressContainer}>
                         <Text style={styles.inputTitleLarge}>
                             Address
@@ -137,7 +183,7 @@ export default function ProfileDetailsScreen(props) {
                         start={{ x: 0, y: 1 }}
                         end={{ x: 0, y: 0 }}
                     >
-                        <TouchableOpacity style={styles.changeButton} onPress={handlePress}>
+                        <TouchableOpacity style={styles.changeButton} onPress={()=>changeProfile(name, lastName, age, password, email)}>
                             <Text style={styles.changeButtonText}>
                                 Change
                             </Text>
