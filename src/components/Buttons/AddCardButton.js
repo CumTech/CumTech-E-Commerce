@@ -10,9 +10,9 @@ const AddCardButton = () => {
     return (
     <View style={styles.container}>
         <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={handlePress}>
-            <Image style={styles.image} source={require('../../../assets/icons/credit-card-add-black.png')} />
-        </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={handlePress}>
+                <Image style={styles.image} source={require('../../../assets/icons/credit-card-add-black.png')} />
+            </TouchableOpacity>
         </View>
     </View>
     )

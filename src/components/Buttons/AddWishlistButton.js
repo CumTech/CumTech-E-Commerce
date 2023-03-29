@@ -9,17 +9,17 @@ const AddCartButton = () => {
 
     return (
         <LinearGradient
-        colors={['#F71919', '#FFA553']}
-        start={{ x: 0, y: 1 }}
-        end={{ x: 0, y: 0 }}
-        style={styles.container}
+            colors={['#F71919', '#FFA553']}
+            start={{ x: 0, y: 1 }}
+            end={{ x: 0, y: 0 }}
+            style={styles.container}
         >
-        <TouchableOpacity
-            style={styles.button}
-            onPress={handlePress} 
-        >
-            <Image resizeMode="contain" style={styles.icon} source={require('../../../assets/icons/heart-white.png')} />
-        </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={handlePress} 
+            >
+                <Image resizeMode="contain" style={styles.icon} source={require('../../../assets/icons/heart-white.png')} />
+            </TouchableOpacity>
         </LinearGradient>
     );
     };

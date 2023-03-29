@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const Counter = () => {
@@ -11,7 +11,7 @@ const Counter = () => {
             style={styles.container}
         >
             <View style={styles.textContainer}>
-                <Text style={styles.Text}>1</Text>
+                <Text style={styles.Text}>3</Text>
             </View>
         </LinearGradient>
     );
@@ -33,9 +33,7 @@ const styles = StyleSheet.create({
     Text: {
         fontFamily: 'monda',
         textAlign: 'center',
-        fontSize: 16,
-        paddingBottom: 5,
-        paddingLeft: 3,
+        fontSize: 13,
     },
 });
 

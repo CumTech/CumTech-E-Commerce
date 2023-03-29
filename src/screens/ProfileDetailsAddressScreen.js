@@ -90,36 +90,6 @@ const styles = StyleSheet.create({
         height: '100%',
         backgroundColor: '#FFF7ED',
     },
-//--------------------------HEADER--------------------------//
-    header: {
-        // flex: 0.3,
-        height: 80,
-        flexDirection: 'row',                                             
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#34B6FF',
-    },
-    backButtonContainer: {
-        flex: 0.7,
-        alignItems: 'center',
-    },
-    backButton: {
-    },
-    titleContainer: {
-        flex: 1.1,
-        alignItems: 'center',
-    },
-    title: { 
-        fontFamily: 'coco-goose',
-        fontSize: 48,
-    },
-    spaceToCenterContainer: {
-        flex: 0.7,
-        height: 80,
-        justifyContent: 'center',
-        alignItems: 'center',
-        opacity: 0,
-    },
 //--------------------------WIDGET--------------------------//
     widgetContainer: {
         // flex: 0.3,

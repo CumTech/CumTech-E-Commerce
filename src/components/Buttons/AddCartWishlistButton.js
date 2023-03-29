@@ -10,17 +10,17 @@ const AddWishlistButton = () => {
 
     return (
         <LinearGradient
-        colors={['#FAD25C', '#F77019']}
-        start={{ x: 0, y: 1 }}
-        end={{ x: 0, y: 0 }}
-        style={styles.container}
+            colors={['#FAD25C', '#F77019']}
+            start={{ x: 0, y: 1 }}
+            end={{ x: 0, y: 0 }}
+            style={styles.container}
         >
-        <TouchableOpacity
-            style={styles.button}
-            onPress={handlePress} 
-        >
-            <Image resizeMode="contain" style={styles.icon} source={require('../../../assets/icons/add-to-cart-white.png')} />
-        </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={handlePress} 
+            >
+                <Image resizeMode="contain" style={styles.icon} source={require('../../../assets/icons/add-to-cart-white.png')} />
+            </TouchableOpacity>
         </LinearGradient>
     );
     };

@@ -5,7 +5,7 @@ const Cards = () => {
     return (
         <View style={styles.container}>
             <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require('../../assets/images/card.png')} />
+                <Image style={styles.image} source={require('../../assets/images/card.png')} />
             </View>
         </View>
     );

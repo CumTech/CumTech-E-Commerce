@@ -1,9 +1,8 @@
-import {  Text, View, Image, TouchableOpacity } from 'react-native';
+import {  Text, View, Image } from 'react-native';
 import React from 'react';
 import styles from '../styles/ProductWishListStyles';
 import AddCartWishlistButton from '../Buttons/AddCartWishlistButton';
 import QuitButton from '../Buttons/QuitButton';
-import MinusButton from '../Buttons/MinusButton';
 
 const ProductCart = () => {
     return (
@@ -19,8 +18,8 @@ const ProductCart = () => {
                 </View>
                 <View style={styles.priceContainer}>
                     <View style={styles.priceTextContainer}>
-                            <Text style={styles.priceTextDollars}>US$</Text>
-                            <Text style={styles.priceTextNumber}>1.99</Text>
+                        <Text style={styles.priceTextDollars}>US$</Text>
+                        <Text style={styles.priceTextNumber}>1.99</Text>
                     </View>
                 </View>
                 <View style={styles.amountContainer}>

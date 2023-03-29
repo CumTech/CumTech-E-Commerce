@@ -19,21 +19,15 @@ const styles = {
     height: 203,
     margin: '5%',
     borderRadius: 12,
-    // borderColor: '#F2F',
-    // borderWidth: 1,
   },
   imageContainer: {
     width: '90%',
     height: 200,
     borderRadius: 12,
-    // borderColor: 'red',
-    // borderWidth: 3,
   },
   image: {
     width: '100%',
     height: '100%',
     borderRadius: 12,
-    // borderColor: 'blue',
-    // borderWidth: 3,
   },
 }
