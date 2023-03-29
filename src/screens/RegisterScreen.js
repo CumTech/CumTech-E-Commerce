@@ -1,43 +1,57 @@
 import React, {useContext, useState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
-import LogInButton from '../components/Buttons/NextButton';
-
+import RegisterButton from '../components/Buttons/NextButton';
 import { AuthContext } from '../Contexts/AuthContext';
 
 export default function App(props) {
+  //This makes the register function available in this component
   const {register} = useContext(AuthContext);
+  //These are the states that will hold the name, email and password
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-  const { navigation } = props;
 
+  //Use this to navigate to the Login screen
+  const { navigation } = props;
   const goToLogin = () => {
     navigation.navigate('LogIn');
   }
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('../../assets/images/BgLogIn.png')} style={{ flex: 1 }}>
+      <ImageBackground source={require('../../assets/images/BgLogIn.png')} style={styles.background}>
         <View style={styles.topContainer}>
           <View style={styles.titleContainer}>
             <Text style={styles.titleLittle}>Hello,</Text>
             <Text style={styles.titleBig}>Sign Up!</Text>
           </View>
           <View style={styles.inputsContainer}>
-
             <Text style={styles.textInput}>Name</Text>
-            <TextInput style={styles.input} value={name} onChangeText={text => setName(text)}/>
-
+              <TextInput 
+                style={styles.input} 
+                value={name} 
+                onChangeText={text => setName(text)}
+              />
             <Text style={styles.textInput}>Email</Text>
-            <TextInput style={styles.input} value={email} onChangeText={text => setEmail(text)}/>
-
+              <TextInput 
+                style={styles.input} 
+                value={email} 
+                onChangeText={text => setEmail(text)}
+              />
             <Text style={styles.textInput}>Password</Text>
-            <TextInput secureTextEntry={true} style={styles.input} value={password} onChangeText={text => setPassword(text)} />
+              <TextInput 
+                secureTextEntry={true} 
+                style={styles.input} 
+                value={password} 
+                onChangeText={text => setPassword(text)}
+              />
           </View>
         </View>
         <View style={styles.centerContainer}>
           <Text style={styles.buttonNextText}>Create</Text>
-          <LogInButton onPress={()=> { register(name, email, password)} }/>
+          <RegisterButton 
+            onPress={()=> { register(name, email, password)} }
+          />
         </View>
         <View style={[styles.bottomContainer]}>
           <Text style={styles.footerText}>Already have an account?</Text>
@@ -55,6 +69,9 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
     backgroundColor: '#FFFFFF',
+  },
+  background: {
+    flex: 1,
   },
   topContainer: {
     flex: 2,

@@ -14,7 +14,6 @@ export default function App() {
 
   useFocusEffect(
     React.useCallback(() => {
-      console.log('hola');
       axios.get('https://cum-tech-api.vercel.app/product')
         .then(response => {
             setProducts(response.data);
@@ -22,12 +21,7 @@ export default function App() {
         .catch(error => {
             console.log(error);
         });
-
-      // Aquí puedes ejecutar cualquier código que desees al enfocar el screen
-      return () => {
-        console.log('La pantalla se desenfocó');
-      };
-    }, [])
+    },)
   );
     
 

@@ -1,5 +1,5 @@
-import { SafeAreaView, StyleSheet, Text, ScrollView,View, TouchableOpacity } from 'react-native';
-import React, { Component } from 'react'
+import { Text, View } from 'react-native';
+import React from 'react'
 import BackBotton from '../components/Buttons/BackButton';
 
 

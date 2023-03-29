@@ -1,5 +1,5 @@
-import React,{useEffect} from 'react'
-import { View, Text,TouchableOpacity, Image } from 'react-native'
+import React from 'react'
+import { View, Text, Image } from 'react-native'
 import styles from '../styles/ProductHomeStyles'
 import AddCartButton from '../Buttons/AddCartButton';
 import AddWishlistButton from '../Buttons/AddWishlistButton';
@@ -10,7 +10,6 @@ const ProductHome = ({name, price, img}) => {
         <View style={styles.container}>
             <View style={styles.ProductContainer}>
                 <View style={styles.imageProductContainer}>
-                    {/* <Image resizeMode="contain" style = {styles.image} source={require((`../../../assets/images/${img}`))}/> */}
                     <Image resizeMode="contain" style = {styles.image} source={{ uri: `${img}` }}/>
                 </View>
                 <View style = {styles.informationContainer}>
@@ -25,9 +24,9 @@ const ProductHome = ({name, price, img}) => {
                             </View>
                             <View style={styles.buttonCartContainer}>
                                 <AddCartButton
-                                name={name}
-                                price={price}
-                                img={img}
+                                    name={name}
+                                    price={price}
+                                    img={img}
                                 />
                             </View>
                         </View>

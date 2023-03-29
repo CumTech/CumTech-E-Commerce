@@ -1,4 +1,4 @@
-import {  Text, View, Image, TouchableOpacity } from 'react-native';
+import {  Text, View, Image } from 'react-native';
 import React from 'react';
 import styles from '../styles/ProductCartStyles';
 import PlusButton from '../Buttons/PlusButton';

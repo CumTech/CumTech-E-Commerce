@@ -4,41 +4,56 @@ import LogInButton from '../components/Buttons/NextButton';
 import { AuthContext } from '../Contexts/AuthContext';
 
 export default function App(props) {
+  //This makes the login function available in this component
   const {login} = useContext(AuthContext);
-  const { navigation } = props;
+  //These are the states that will hold the email and password
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+
+  //Use this to navigate to the Register screen
+  const { navigation } = props;
+  //This function will be called when the user presses the register button
   const goToRegister = () => {
     navigation.navigate('Register');
   }
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('../../assets/images/BgLogIn.png')} style={{ flex: 1 }}>
+      <ImageBackground source={require('../../assets/images/BgLogIn.png')} style={styles.background}>
         <View style={styles.topContainer}>
           <View style={styles.titleContainer}>
             <Text style={styles.titleBig}>CumTech</Text>
             <Text style={styles.titleLittle}>Sign in to your account</Text>
           </View>
           <View style={styles.inputsContainer}>
-            
             <Text style={styles.textInput}>Email</Text>
-            <TextInput style={styles.input} value={email} onChangeText={text => setEmail(text)}/>
-
+              <TextInput 
+                style={styles.input} 
+                value={email} 
+                onChangeText={text => setEmail(text)}
+              />
             <Text style={styles.textInput}>Password</Text>
-            <TextInput secureTextEntry={true} style={[styles.input, {marginBottom: 3, }]} value={password} onChangeText={text => setPassword(text)}/>
-            
-            <Text style={[{fontSize:10, alignSelf: 'flex-end', color: '#8f8f8f'}]}>Forgot your password?</Text>
-            
+              <TextInput 
+                secureTextEntry={true} 
+                style={[styles.input, {marginBottom: 3, }]} 
+                value={password} 
+                onChangeText={text => setPassword(text)}
+              />
+            <Text style={styles.forgotText}>Forgot your password?</Text>
           </View>
         </View>
         <View style={styles.centerContainer}>
           <Text style={styles.buttonNextText}>Log In</Text>
-          <LogInButton onPress={()=> {login(email, password)}} />
+          <LogInButton 
+            onPress={()=> {login(email, password)}} 
+          />
         </View>
         <View style={styles.bottomContainer}>
           <Text style={styles.footerText}>Don't have an account?</Text>
-          <TouchableOpacity style={styles.registerButton} onPress={goToRegister} >
+          <TouchableOpacity 
+            style={styles.registerButton} 
+            onPress={goToRegister}
+          >
             <Text style={styles.registerButtonText}>Register</Text>
           </TouchableOpacity>
         </View> 
@@ -51,6 +66,11 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
     backgroundColor: '#FFFFFF',
+  },
+  background: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
   },
   topContainer: {
     flex: 2,
@@ -78,6 +98,11 @@ const styles = StyleSheet.create({
   textInput: {
     fontFamily: 'coco-goose',
     fontSize: 16,
+  },
+  forgotText: {
+    fontSize:10, 
+    alignSelf: 'flex-end', 
+    color: '#8f8f8f',
   },
   input: {
     fontFamily: 'monda',

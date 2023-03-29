@@ -14,16 +14,9 @@ export default function App() {
   return (
     <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
       <View style={styles.container}>
-      <Header Title='CART'/>
+        <Header Title='CART'/>
       <ScrollView>
         <View style={styles.scrollContainer}>
-          <ProductCart/>
-          <ProductCart/>
-          <ProductCart/>
-          <ProductCart/>
-          <ProductCart/>
-          <ProductCart/>
-          <ProductCart/>
           <ProductCart/>
           <ProductCart/>
           <ProductCart/>
@@ -88,35 +81,6 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
     backgroundColor: '#FFF7ED',
-  },
-//--------------------HEADER--------------------//
-  header: {
-    height: 80,
-    flexDirection: 'row',                                             
-    justifyContent: 'center',
-    alignItems: 'center',
-    
-  },
-  backButtonContainer: {
-    flex: 0.7,
-    alignItems: 'center',
-  },
-  backButton: {
-  },
-  titleContainer: {
-    flex: 1.1,
-    alignItems: 'center',
-  },
-  title: { 
-    fontFamily: 'coco-goose',
-    fontSize: 48,
-  },
-  spaceToCenterContainer: {
-    flex: 0.7,
-    height: 80,
-    justifyContent: 'center',
-    alignItems: 'center',
-    opacity: 0,
   },
 //--------------------SCROLL--------------------//
   scrollContainer: {

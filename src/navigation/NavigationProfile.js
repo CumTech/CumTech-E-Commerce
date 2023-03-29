@@ -6,14 +6,14 @@ import ProfileAddress from '../screens/ProfileDetailsAddressScreen';
 import WishList from '../screens/WishListScreen';
 import Orders from '../screens/OrdersScreen'
 import Payment from '../screens/PaymentsScreen'
-import AuthNavigation from './AuthNavigation';
 
 const Stack = createNativeStackNavigator();
 
 export default function NavigationProfileStack() {
   return (
     <Stack.Navigator
-    screenOptions={{ headerShown: false}}>
+      screenOptions={{ headerShown: false}}
+    >
       <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen name="ProfileDetails" component={ProfileDetails} />
       <Stack.Screen name="WishList" component={WishList} />

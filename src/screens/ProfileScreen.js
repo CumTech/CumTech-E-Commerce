@@ -7,13 +7,15 @@ import { AuthContext } from '../Contexts/AuthContext';
 
 
 export default function ProfileScreen(props) {
+    //This makes the logout function available in this component
     const {logout} = useContext(AuthContext);
+    ///This makes the navigation available in this screen
     const {navigation}=props;
 
     return (
         <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
             <View style={styles.container}>
-            <Header Title='PROFILE'/>
+                <Header Title='PROFILE'/>
                 <View style={styles.pfpContainer}>
                     <View style={styles.coverImageContainer}>
                         <Image style={styles.coverImage} source={require('../../assets/images/pfpcover.jpg')} />
@@ -24,18 +26,30 @@ export default function ProfileScreen(props) {
                 </View>
                 <View style={styles.buttonsProfileContainer}>
                     <View style={styles.buttonsProfileFirstRow}>
-                        <TouchableOpacity style={styles.userButton} onPress={() => navigation.navigate('ProfileDetails')}>
+                        <TouchableOpacity 
+                            style={styles.userButton} 
+                            onPress={() => navigation.navigate('ProfileDetails')}
+                        >
                             <Text style={styles.userButtonText}>Profile Details</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.userButton} onPress={() => navigation.navigate('Orders')}>
+                        <TouchableOpacity 
+                            style={styles.userButton} 
+                            onPress={() => navigation.navigate('Orders')}
+                        >
                             <Text style={styles.userButtonText}>Orders</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.buttonsProfileSecondRow}>
-                        <TouchableOpacity style={styles.userButton} onPress={() => navigation.navigate('WishList')}>
+                        <TouchableOpacity 
+                            style={styles.userButton} 
+                            onPress={() => navigation.navigate('WishList')}
+                        >
                             <Text style={styles.userButtonText}>Wishlist</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.userButton} onPress={() => navigation.navigate('Payment')}>
+                        <TouchableOpacity 
+                            style={styles.userButton} 
+                            onPress={() => navigation.navigate('Payment')}
+                        >
                             <Text style={styles.userButtonText}>Payment</Text>
                         </TouchableOpacity>
                     </View>
@@ -78,7 +92,10 @@ export default function ProfileScreen(props) {
                         start={{ x: 0, y: 1 }}
                         end={{ x: 0, y: 0 }}
                     >
-                        <TouchableOpacity style={styles.signOutButton} onPress={()=> {logout()}}>
+                        <TouchableOpacity 
+                            style={styles.signOutButton} 
+                            onPress={()=> {logout()}}
+                        >
                             <Text style={styles.signOutText}>Sign Out</Text>
                         </TouchableOpacity>
                     </LinearGradient>
@@ -93,35 +110,6 @@ const styles = StyleSheet.create({
     container: {
         height: '100%',
         backgroundColor: '#FFF7ED',
-    },
-//--------------------------HEADER--------------------------//
-    header: {
-        // flex: 0.3,
-        height: 80,
-        flexDirection: 'row',                                             
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    backButtonContainer: {
-        flex: 0.5,
-        alignItems: 'center',
-    },
-    backButton: {
-    },
-    titleContainer: {
-        flex: 1.5,
-        alignItems: 'flex-start',
-    },
-    title: {
-        fontFamily: 'coco-goose',
-        fontSize: 48,
-    },
-    spaceToCenterContainer: {
-        flex: 0.7,
-        height: 80,
-        justifyContent: 'center',
-        alignItems: 'center',
-        opacity: 0,
     },
 //--------------------------PROFILE PICTURES--------------------------//
     pfpContainer: {
@@ -215,7 +203,6 @@ const styles = StyleSheet.create({
     orderDetailsTextRight: {
         fontFamily: 'coco-goose',
         fontSize: 20,
-        color: '#000000',
     },
     orderDetailsButton: {
         borderWidth: 1,
@@ -226,7 +213,6 @@ const styles = StyleSheet.create({
     },
     orderDetailsTextLeft: {
         fontFamily: 'inter',
-        fontStyle: 'normal',
         fontSize: 16,
         color: '#FF9700',
     },
