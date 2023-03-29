@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   input: {
-    fontFamily: 'coco-goose',
+    fontFamily: 'monda',
     fontSize: 16,
     backgroundColor: '#FFF8EF',
     height: 40,

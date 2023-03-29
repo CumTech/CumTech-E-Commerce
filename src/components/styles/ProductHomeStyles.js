@@ -81,7 +81,7 @@ const styles = {
         alignItems: 'center',
     },
     titleProductText:{
-        fontFamily: 'coco-goose',
+        fontFamily: 'monda',
         fontSize: 16,
         color: 'black',
     },
