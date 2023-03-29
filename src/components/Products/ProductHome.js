@@ -24,7 +24,11 @@ const ProductHome = ({name, price, img}) => {
                                 <AddWishlistButton/>
                             </View>
                             <View style={styles.buttonCartContainer}>
-                                <AddCartButton/>
+                                <AddCartButton
+                                name={name}
+                                price={price}
+                                img={img}
+                                />
                             </View>
                         </View>
                     </View>
