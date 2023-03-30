@@ -2,6 +2,7 @@ import React from 'react';
 import { TouchableOpacity, StyleSheet, Image} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
+import RNRestart from 'react-native-restart';
 
 
 const CartButton = () => {
@@ -16,7 +17,9 @@ const CartButton = () => {
     >
       <TouchableOpacity
         style={styles.button}
-        onPress={()=> navigation.navigate('Carrito')}
+        onPress={()=> navigation.navigate('Carrito')
+      
+      }
       >
         <Image resizeMode="contain" style={styles.icon} source={require('../../../assets/icons/cart-black.png')} />
       </TouchableOpacity>

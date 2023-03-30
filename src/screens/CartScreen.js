@@ -1,15 +1,31 @@
-import React from 'react';
+import React, {useState, useContext, useCallback, useEffect} from 'react';
 import { SafeAreaView, StyleSheet, Text, ScrollView,View, TouchableOpacity } from 'react-native';
 import ProductCart from '../components/Products/ProductCart'
 import Header from '../components/Header';
 import SafeAreaAndroid from '../components/SafeViewAndroid';
 import { LinearGradient } from 'expo-linear-gradient';
+import { AuthContext } from '../Contexts/AuthContext';
+import { useFocusEffect } from '@react-navigation/native';
+import RNRestart from 'react-native-restart';
 
 export default function App() {
+  const [data, setData] = useState(0);
+  const { products } = useContext(AuthContext);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      // Aquí puedes utilizar products directamente desde el contexto
+      console.log(products);
+    }, [products]) 
+  );
+  // useEffect(() => {
+  //   setData(data +1);
+  //   console.log(data)
+  // }, []);
 
   const payButton = () => {
-    console.log('Shopping Button Pressed');
-  }
+    console.log(products[0]);
+  } 
 
   return (
     <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
@@ -17,11 +33,15 @@ export default function App() {
         <Header Title='CART'/>
       <ScrollView>
         <View style={styles.scrollContainer}>
-          <ProductCart/>
-          <ProductCart/>
-          <ProductCart/>
-          <ProductCart/>
-          <ProductCart/>
+    <Text>{data}</Text>
+      {products.map(product => (
+        <ProductCart 
+          name={product.name} 
+          price={product.price}  
+          img={product.img}  
+        /> 
+      ))} 
+
         </View>
       </ScrollView>
       <View style = {styles.shipmentDetailsContainer}>
