@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     },
 //-------------------------Contenedor Imagenes-------------------------------------------------//
     pfpImagesContainer: {
-        height: 265,
+        flex: 4,
         flexDirection: 'row',
         justifyContent: 'center',
     },
@@ -181,18 +181,18 @@ const styles = StyleSheet.create({
     },
 //-------------------------Contenedor Inputs-------------------------------------------------//
     inputContainerSmall: {
-        height: 146,
+        flex: 2,
         flexDirection: 'row',
-        marginBottom: 20,
+        marginBottom: '2%',
     },
     inputLeft: {
         flex: 1,
-        flexDirection: 'column',
+        justifyContent: 'space-evenly',
         paddingLeft: '7%',
     },
     inputRight: {
         flex: 1,
-        flexDirection: 'column',
+        justifyContent: 'space-evenly',
         paddingLeft: '2%',
     },
     inputTitleSmall: {
@@ -206,15 +206,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
         width: 153,
         height: 40,
-        marginBottom: 1,
         borderRadius: 10,
         borderColor: 'transparent',
         textAlign: 'center',
-        marginBottom: 20,
         elevation: 4,
     },
     inputContainerLarge: {
-        height: 201,
+        flex: 3,
         paddingLeft: '7%',
     },
     inputTitleLarge: {

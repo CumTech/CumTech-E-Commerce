@@ -1,4 +1,5 @@
 import React from 'react';
+import { View, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from '../screens/HomeScreen'
 import CartScreen from '../screens/CartScreen';
@@ -10,8 +11,10 @@ const Tab = createBottomTabNavigator();
 
 export default function NavigationTab() {
   return (
-    <Tab.Navigator 
-      screenOptions={{ 
+    <View style={styles.container}>
+      <Tab.Navigator 
+      screenOptions={{
+        backgroundColor: '#000',
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
@@ -58,6 +61,13 @@ export default function NavigationTab() {
           }} 
         />
     </Tab.Navigator>
+    </View>
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FFF7ED',
+  },
+})

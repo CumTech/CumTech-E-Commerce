@@ -74,12 +74,12 @@ export default function ProfileScreen(props) {
                         <View style={styles.orderDetailsHistory}>
                             <View style={styles.orderDetailsLeft}>
                                 <View style={styles.orderDetailsImagenContainer}>
-                                    <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/avocado.png')} />
+                                    <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/pou.webp')} />
                                 </View>
                             </View>
                             <View style={styles.orderDetailsRight}>
                                 <View style={styles.orderDetailsImagenContainer}>
-                                    <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/avocado.png')} />
+                                    <Image resizeMode="contain" style={styles.orderDetailsImage} source={require('../../assets/images/pou.webp')} />
                                 </View>
                             </View>
                         </View>

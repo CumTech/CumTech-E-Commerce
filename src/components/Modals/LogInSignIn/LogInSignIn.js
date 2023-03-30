@@ -18,7 +18,6 @@ const LogInSignInModal = ({ visible, onClose }) => {
               <Text style={styles.modalText}>Before continue you may Log In</Text>
             </View>
             <View style={styles.modalContent}>
-              
               <TextGradientButton
                 TextContent = 'Sign In'
                 onPress= {onClose}

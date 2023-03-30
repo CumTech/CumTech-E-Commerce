@@ -14,7 +14,7 @@ export default function OrdersScreen() {
     return (
         <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
             <View style={styles.container}>
-            <Header Title='ADDRESS'/>
+                <Header Title='ADDRESS'/>
                 <View style={styles.widgetContainer}>
                     <View style={styles.widgetContainer2}>
                         <LinearGradient
@@ -33,7 +33,9 @@ export default function OrdersScreen() {
                             <Text style={styles.streetTitleText}>Street</Text>
                         </View>
                         <View style={styles.streetInputContainer}>
-                            <TextInput style={styles.inputLarge} placeholder="Street"  />
+                            <TextInput 
+                                style={styles.inputLarge} 
+                                placeholder="Street"/>
                         </View>
                     </View>
                     <View style={styles.numbersContainer}>
@@ -47,12 +49,24 @@ export default function OrdersScreen() {
                         </View>
                     </View>
                     <View style={styles.addressContainer}>
-                        <Text style={styles.addressText}>Second Street</Text>
-                        <TextInput style={styles.inputLarge} placeholder="Second Street"  />
-                        <Text style={styles.addressText}>City</Text>
-                        <TextInput style={styles.inputLarge} placeholder="City"  />
-                        <Text style={styles.addressText}>State</Text>
-                        <TextInput style={styles.inputLarge} placeholder="State"  />
+                        <View style={styles.addressTitleContainer}>
+                            <Text style={styles.addressText}>Second Street</Text>
+                        </View>
+                        <View style={styles.addressInputContainer}>
+                            <TextInput style={styles.inputLarge} placeholder="Second Street"  />
+                        </View>
+                        <View style={styles.addressTitleContainer}>
+                            <Text style={styles.addressText}>City</Text>
+                        </View>
+                        <View style={styles.addressInputContainer}>
+                            <TextInput style={styles.inputLarge} placeholder="City"  />
+                        </View>
+                        <View style={styles.addressTitleContainer}>
+                            <Text style={styles.addressText}>State</Text>
+                        </View>
+                        <View style={styles.addressInputContainer}>
+                            <TextInput style={styles.inputLarge} placeholder="State"  />
+                        </View>
                     </View>
                     <View style={styles.addressContainer2}>
                         <View style={styles.zipCodeContainer}>
@@ -66,18 +80,16 @@ export default function OrdersScreen() {
                     </View>
                 </View>
                 <View style={styles.buttonContainer}>
-                    <View style={styles.buttonContainer2}>
-                        <LinearGradient
-                            colors={['#F77019', '#FAD25C']}
-                            style={styles.buttonBG}
-                            start={{ x: 0, y: 1 }}
-                            end={{ x: 0, y: 0 }}
-                        >
-                            <TouchableOpacity style={styles.button} onPress={handlePress}>
-                                <Text style={styles.buttonText}>Submit</Text>
-                            </TouchableOpacity>
-                        </LinearGradient>
-                    </View>
+                    <LinearGradient
+                        colors={['#F77019', '#FAD25C']}
+                        style={styles.buttonBG}
+                        start={{ x: 0, y: 1 }}
+                        end={{ x: 0, y: 0 }}
+                    >
+                        <TouchableOpacity style={styles.button} onPress={handlePress}>
+                            <Text style={styles.buttonText}>Submit</Text>
+                        </TouchableOpacity>
+                    </LinearGradient>
                 </View>
             </View>
         </SafeAreaView>
@@ -92,16 +104,14 @@ const styles = StyleSheet.create({
     },
 //--------------------------WIDGET--------------------------//
     widgetContainer: {
-        // flex: 0.3,
-        height: 180,
-        backgroundColor: '#4200FF',
+        flex: 0.4,
     },
     widgetContainer2: {
         width: '100%',
         alignItems: 'center',
     },
     widgetBG: {
-        width: '90%',
+        width: '93%',
         height: '95%',
         justifyContent: 'center',
         alignItems: 'center',
@@ -115,45 +125,28 @@ const styles = StyleSheet.create({
 //--------------------------INPUT--------------------------//
     inputContainer: {
         flex: 1,
-        backgroundColor: '#FFA',
-        paddingLeft: 35,
+        justifyContent: 'space-between',
     },
     streetContainer: {
-        width: '100%',
+        alignItems: 'center',
     },
     streetTitleContainer: {
-        width: '100%',
+        width: '82%',
+        justifyContent: 'flex-start',
     },
     streetTitleText: {
         fontFamily: 'coco-goose',
         fontSize: 16, 
         color: '#000',
     },
-    streetInputContainer: {
-        width: '100%',
-    },
     numbersContainer: {
-        width: '100%',
         flexDirection: 'row',
-        borderWidth: 1,
-        borderColor: '#000',
-    },
-    extNumberContainer: {
-        // flex: 0.5,
-        width: '50%',
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: 'space-evenly',
     },
     extNumberText: {
         fontFamily: 'coco-goose',
         fontSize: 16,
         color: '#000',
-    },
-    intNumberContainer: {
-        // flex: 0.5,
-        width: '50%',
-        justifyContent: 'center',
-        alignItems: 'center',
     },
     intNumberText: {
         fontFamily: 'coco-goose',
@@ -161,36 +154,26 @@ const styles = StyleSheet.create({
         color: '#000',
     },
     addressContainer: {
-        // flex: 0.3,
-        width: '100%',
-        justifyContent: 'center',
         alignItems: 'center',
     },
+    addressTitleContainer: {
+        width: '82%',
+        justifyContent: 'flex-start',
+    },
+
     addressContainer2: {
-        // flex: 0.3,
-        width: '100%',
         flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: 'space-evenly',
     },
-    zipCodeContainer: {
-        // flex: 0.5,
-        width: '50%',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    countryContainer: {
-        // flex: 0.5,
-        width: '50%',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
+//--------------------------TEXT--------------------------//
     addressText: {
         fontFamily: 'coco-goose',
         fontSize: 16,
         color: '#000',
     },
+//--------------------------INPUTS BG--------------------------//
     inputLarge: {
+        fontFamily: 'monda',
         backgroundColor: '#FFF',
         width: 340,
         height: 40,
@@ -201,6 +184,7 @@ const styles = StyleSheet.create({
         elevation: 4,
     },
     inputSmall: {
+        fontFamily: 'monda',
         backgroundColor: '#FFF',
         width: 153,
         height: 40,
@@ -213,24 +197,19 @@ const styles = StyleSheet.create({
     },
 //--------------------------BUTTON--------------------------//
     buttonContainer: {
-        // flex: 0.3,
-        height: 55,
+        flex: 0.2,
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#FF00F5',
-    },
-    buttonContainer2: {
-        width: '100%',
-        alignItems: 'center',
+        alignItems: 'center',  
     },
     buttonBG: {
         width: '40%',
-        height: '70%',
+        height: '50%',
         borderRadius: 5,
     },
     button: {
         width: '100%',
         height: '100%',
+        borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -239,5 +218,4 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: '#000',
     },
-
 });

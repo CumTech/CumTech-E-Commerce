@@ -8,6 +8,10 @@ export const AuthProvider = ({children}) => {
     const [isLoading, setIsLoading ] = useState(false);
     const [userToken, setUserToken] =useState(null);
     const [userInfo, setUserInfo] = useState(null);
+    const [loginError, setLoginError] = useState(false);
+    const [loginModalText, setLoginModalText] = useState('');
+    const [loginModalVisible, setLoginModalVisible] = useState(false);
+
 
     const login = async (email, password) =>{
         setIsLoading(true);
@@ -21,8 +25,10 @@ export const AuthProvider = ({children}) => {
             setUserToken(userInfo.token)
             AsyncStorage.setItem('userToken', userInfo.token);
             AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
-            
         }).catch(e => {
+            setLoginError(true);
+            setLoginModalText('Invalid email or password');
+            setLoginModalVisible(true);
             console.log(e);
         })
         setIsLoading(false);
@@ -84,7 +90,7 @@ export const AuthProvider = ({children}) => {
 
     return (
 
-        <AuthContext.Provider value={{login, logout, isLoading, userToken, register, userInfo}}>
+        <AuthContext.Provider value={{login, logout, isLoading, userToken, register, userInfo, loginError, loginModalText, loginModalVisible, setLoginError, setLoginModalText, setLoginModalVisible}}>
             {children}            
         </AuthContext.Provider>
 

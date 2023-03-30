@@ -1,14 +1,17 @@
 import React, {useContext, useState} from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground, Modal } from 'react-native';
 import LogInButton from '../components/Buttons/NextButton';
 import { AuthContext } from '../Contexts/AuthContext';
 
 export default function App(props) {
   //This makes the login function available in this component
   const {login} = useContext(AuthContext);
+  const { loginError, setLoginError, loginModalText, setLoginModalText, loginModalVisible, setLoginModalVisible } = useContext(AuthContext);
   //These are the states that will hold the email and password
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const [loginSuccess, setLoginSuccess] = useState(false);
+
 
   //Use this to navigate to the Register screen
   const { navigation } = props;
@@ -19,6 +22,14 @@ export default function App(props) {
 
   return (
     <View style={styles.container}>
+      {/* <Modal
+        animationType="slide"
+        transparent={true}
+        visible={loginModalVisible}
+        onRequestClose={() => {
+          setLoginModalVisible(false);
+        }}
+      > */}
       <ImageBackground source={require('../../assets/images/BgLogIn.png')} style={styles.background}>
         <View style={styles.topContainer}>
           <View style={styles.titleContainer}>
@@ -58,6 +69,7 @@ export default function App(props) {
           </TouchableOpacity>
         </View> 
       </ImageBackground>
+      {/* </Modal> */}
     </View>
   );
 }
