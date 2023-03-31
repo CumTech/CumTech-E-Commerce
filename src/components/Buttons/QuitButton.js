@@ -1,11 +1,18 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Image} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-
-const cancelButton = () => {
+import axios from 'axios';
+import { API_URL } from '../../Config';
+const cancelButton = ({id}) => {
 
     const handlePress = () => {
-        console.log('Quit button pressed');
+        axios.delete(`${API_URL}/wishlist/${id}`)
+        .then(response => {
+            console.log(response)
+        })
+        .catch(error => {
+            console.log(error);
+        });
     };
 
     return (

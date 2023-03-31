@@ -4,7 +4,7 @@ import styles from '../styles/ProductCartStyles';
 import PlusButton from '../Buttons/PlusButton';
 import MinusButton from '../Buttons/MinusButton';
 
-const ProductCart = ({name,price,img}) => {
+const ProductCart = ({name,price,img, count}) => {
     return (
         <View style = {styles.container}>
             <View style = {styles.imageProductContainer}>
@@ -16,7 +16,7 @@ const ProductCart = ({name,price,img}) => {
                         <Text style={styles.titleProductText}>{name}</Text>
                     </View>
                 </View>
-                <View style={styles.priceContainer}>
+                <View style={styles.priceContainer}> 
                     <View style={styles.priceTextContainer}>
                             <Text style={styles.priceTextDollars}>US$</Text>
                             <Text style={styles.priceTextNumber}>{price}</Text>
@@ -28,7 +28,7 @@ const ProductCart = ({name,price,img}) => {
                             <MinusButton/>
                         </View>
                         <View style={styles.amountTextContainer}>
-                            <Text style={styles.amountText}>1</Text>
+                            <Text style={styles.amountText}>{count}</Text>
                         </View>
                         <View style={styles.amountButtonAddContainer}>
                             <PlusButton/>

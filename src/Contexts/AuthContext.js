@@ -9,6 +9,7 @@ export const AuthProvider = ({children}) => {
     const [userToken, setUserToken] =useState(null);
     const [userInfo, setUserInfo] = useState(null);
     const [products, setProducts] = useState([]);
+    
 
     const login = async (email, password) =>{
         setIsLoading(true);
@@ -85,20 +86,15 @@ export const AuthProvider = ({children}) => {
             price: price,
             img: img
         }
-        let carrito = products;
-        carrito.push(car);
-        setProducts(carrito);
-        console.log(products)
+
+        setProducts(prevProducts => [...prevProducts, car]);
+        AsyncStorage.setItem('productsCar', JSON.stringify(products));
     }
 
-    
-
     return (
-
-        <AuthContext.Provider value={{saveItemCarrito, products, setProducts,login, logout, isLoading, userToken, register, userInfo}}>
+        <AuthContext.Provider value={{saveItemCarrito, products, setProducts, login, logout, isLoading, userToken, register, userInfo}}>
             {children}            
         </AuthContext.Provider>
-
     )
 }
  

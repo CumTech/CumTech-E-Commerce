@@ -4,28 +4,31 @@ import styles from '../styles/ProductWishListStyles';
 import AddCartWishlistButton from '../Buttons/AddCartWishlistButton';
 import QuitButton from '../Buttons/QuitButton';
 
-const ProductCart = () => {
+
+const ProductCart = ({name, price, img, id}) => {
     return (
         <View style = {styles.container}>
             <View style = {styles.imageProductContainer}>
-                <Image resizeMode="contain" style = {styles.image}source={require('../../../assets/images/pou.webp')}/>
+                <Image resizeMode="contain" style = {styles.image}  source={{ uri: `${img}` }}/>
             </View>
             <View style = {styles.informationContainer}>
                 <View style={styles.titleProductContainer}>
                     <View style={styles.titleProductTextContainer}>
-                        <Text style={styles.titleProductText}>Pou Plushie</Text>
+                        <Text style={styles.titleProductText}>{name}</Text>
                     </View>
                 </View>
                 <View style={styles.priceContainer}>
                     <View style={styles.priceTextContainer}>
                         <Text style={styles.priceTextDollars}>US$</Text>
-                        <Text style={styles.priceTextNumber}>1.99</Text>
+                        <Text style={styles.priceTextNumber}>{price}</Text>
                     </View>
                 </View>
                 <View style={styles.amountContainer}>
                     <View style={styles.ButtonsContainer}>
                         <View style={styles.ButtonMinusContainer}>
-                            <QuitButton/>
+                            <QuitButton
+                            id={id}
+                            />
                         </View>
                         <View style={styles.ButtonAddContainer}>
                             <AddCartWishlistButton/>
