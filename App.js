@@ -18,11 +18,12 @@ export default function App() {
       setFontLoaded(true);
     } 
     loadFonts();
-  }, []);
+  }, []); 
 
   if (!fontLoaded) {
     return <Text>Loading...</Text>;
   }
+  
   return (
     <AuthProvider>
       <AppNav/>

@@ -2,12 +2,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {createContext, useState, useEffect} from 'react';
 import axios from 'axios';
 import { API_URL } from '../Config';
-
+import ProductCart from '../components/Products/ProductCart';
 export const AuthContext = createContext();
 export const AuthProvider = ({children}) => {
     const [isLoading, setIsLoading ] = useState(false);
     const [userToken, setUserToken] =useState(null);
     const [userInfo, setUserInfo] = useState(null);
+    const [products, setProducts] = useState([]);
     const [loginError, setLoginError] = useState(false);
     const [loginModalText, setLoginModalText] = useState('');
     const [loginModalVisible, setLoginModalVisible] = useState(false);
@@ -84,15 +85,21 @@ export const AuthProvider = ({children}) => {
         isLoggedIn();
     },[]);
 
-    
+    const saveItemCarrito = (name,price,img)=>{
+        const car ={
+            name: name,
+            price: price,
+            img: img
+        }
 
-
+        setProducts(prevProducts => [...prevProducts, car]);
+        AsyncStorage.setItem('productsCar', JSON.stringify(products));
+    }
 
     return (
-
-        <AuthContext.Provider value={{login, logout, isLoading, userToken, register, userInfo, loginError, loginModalText, loginModalVisible, setLoginError, setLoginModalText, setLoginModalVisible}}>
+        <AuthContext.Provider value={{saveItemCarrito,products, setProducts,login, logout, isLoading, userToken, register, userInfo, loginError, loginModalText, loginModalVisible, setLoginError, setLoginModalText, setLoginModalVisible}}>
             {children}            
         </AuthContext.Provider>
-
     )
 }
+ 

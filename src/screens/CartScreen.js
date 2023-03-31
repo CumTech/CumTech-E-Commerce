@@ -1,33 +1,60 @@
-import React from 'react';
+import React, {useState, useContext, useCallback, useEffect} from 'react';
 import { SafeAreaView, StyleSheet, Text, ScrollView,View, TouchableOpacity } from 'react-native';
 import ProductCart from '../components/Products/ProductCart'
 import Header from '../components/Header';
 import SafeAreaAndroid from '../components/SafeViewAndroid';
 import { LinearGradient } from 'expo-linear-gradient';
+import { AuthContext } from '../Contexts/AuthContext';
+import { useFocusEffect } from '@react-navigation/native';
+import RNRestart from 'react-native-restart';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function App() {
+  const { products } = useContext(AuthContext);
+  const [cartProducts, setCartProducts] = useState([]);
+  console.log(products)
 
-  const payButton = () => {
-    console.log('Shopping Button Pressed');
-  }
+  const countByProduct = {};
+
+  cartProducts.forEach((product) => {
+    if (countByProduct[product.name]) {
+      countByProduct[product.name].count++;
+    } else {
+      countByProduct[product.name] = {
+        count: 1,
+        product: product,
+      };
+    }
+  });
+
+  const productsToShow = Object.values(countByProduct).map((entry) => entry.product);
+
+  useEffect(() => {
+    setCartProducts(products);
+  }, [products]);
 
   return (
-    <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}>
+    <SafeAreaView style={SafeAreaAndroid.AndroidSafeArea}> 
       <View style={styles.container}>
-        <Header Title='CART'/>
-      <ScrollView>
-        <View style={styles.scrollContainer}>
-          <ProductCart/>
-          <ProductCart/>
-          <ProductCart/>
-          <ProductCart/>
-          <ProductCart/>
-        </View>
-      </ScrollView>
-      <View style = {styles.shipmentDetailsContainer}>
+        <Header Title="CART" />
+        <ScrollView>
+          <View style={styles.scrollContainer}>
+            {productsToShow.map((product) => (
+              <ProductCart
+                key={product.name}
+                name={product.name}
+                price={product.price}
+                img={product.img}
+                count={countByProduct[product.name].count}
+              />
+            ))}
+          </View>
+        </ScrollView>
+
+      <View style = {styles.shipmentDetailsContainer}> 
         <LinearGradient 
           colors={['#FFFFFF', '#FFF7ED']}
-          style={ styles.shipmentDetailsBG}
+          style={ styles.shipmentDetailsBG} 
           start={{ x: 0, y: 1 }}
           end={{ x: 0, y: 0 }}
         >
@@ -62,7 +89,17 @@ export default function App() {
                   start={{ x: 0, y: 1 }}
                   end={{ x: 0, y: 0 }}
                 >
-                  <TouchableOpacity style={styles.shipmentDetailsButtonTouchable} onPress={payButton}>
+                  <TouchableOpacity style={styles.shipmentDetailsButtonTouchable} onPress={()=> console.log(AsyncStorage.getItem('productsCar')
+            .then(() => {
+            console.log('El carrito se ha actualizado:');
+            return AsyncStorage.getItem('productsCar');
+            })
+            .then(value => {
+            console.log(value);
+            })
+            .catch(error => {
+            console.log('Error al guardar el carrito:', error);
+            }))}>
                     <Text style={styles.shipmentDetailsButtonTouchableText}>Buy</Text>
                   </TouchableOpacity>
                 </LinearGradient>

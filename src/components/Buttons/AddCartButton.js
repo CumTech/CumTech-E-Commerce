@@ -1,12 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { TouchableOpacity, StyleSheet, Image} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AuthContext } from '../../Contexts/AuthContext';
 
 const AddCartButton = ({name, price, img}) => {
-    const [car, setCar] = useState([]);
-    const handlePress = () => {
-        console.log('se agrego el producto' + name);
-    };
+const {saveItemCarrito} = useContext(AuthContext);
 
     return (
         <LinearGradient
@@ -17,14 +16,15 @@ const AddCartButton = ({name, price, img}) => {
         >
         <TouchableOpacity
             style={styles.button}
-            onPress={handlePress} 
+            onPress={()=>{
+                saveItemCarrito(name, price,img);
+            }} 
         >
             <Image resizeMode="contain" style={styles.icon} source={require('../../../assets/icons/cart-white.png')} />
         </TouchableOpacity>
         </LinearGradient>
     );
 };
-
 const styles = StyleSheet.create({
     container: {
         width: 20,

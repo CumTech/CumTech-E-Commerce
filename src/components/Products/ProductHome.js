@@ -24,9 +24,11 @@ const ProductHome = ({name, price, img}) => {
                             </View>
                             <View style={styles.buttonCartContainer}>
                                 <AddCartButton
+                                onPress
                                     name={name}
                                     price={price}
                                     img={img}
+                                    
                                 />
                             </View>
                         </View>
