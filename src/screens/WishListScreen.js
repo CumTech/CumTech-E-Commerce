@@ -8,21 +8,25 @@ import { AuthContext } from '../Contexts/AuthContext';
 import { useFocusEffect } from '@react-navigation/native';
 import axios from 'axios';
 
+
 export default function WishListScreen() {
   const {userInfo} = useContext(AuthContext);
   const [products, setProducts] = useState([]);
+  console.log(userInfo._id)
   useFocusEffect(
     React.useCallback(() => {
       const intervalId = setInterval(() => {
-        axios.get(`${API_URL}/wishlist`)
+        axios.get(`${API_URL}/wishlists/user/products/${userInfo._id}`)
           .then(response => {
-            setProducts(response.data);
-            console.log(response.data)
+            let productInfo = response.data;
+            const products = productInfo.products.map(item => item.product);
+            setProducts(products);
+            
           })
           .catch(error => {
-            console.log(error);
+            console.log(error); 
           });
-      }, 50000); // Actualizar cada 5 segundos
+      }, 5000); // Actualizar cada 5 segundos
   
       return () => {
         clearInterval(intervalId);

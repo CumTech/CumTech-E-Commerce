@@ -5,8 +5,6 @@ import Header from '../components/Header';
 import SafeAreaAndroid from '../components/SafeViewAndroid';
 import { LinearGradient } from 'expo-linear-gradient';
 import { AuthContext } from '../Contexts/AuthContext';
-import { useFocusEffect } from '@react-navigation/native';
-import RNRestart from 'react-native-restart';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function App() {

@@ -14,7 +14,7 @@ export default function App() {
 
   useFocusEffect(
     React.useCallback(() => {
-      axios.get('https://cum-tech-api.vercel.app/product')
+      axios.get('https://cum-tech-api.vercel.app/products')
         .then(response => {
             setProducts(response.data);
         })

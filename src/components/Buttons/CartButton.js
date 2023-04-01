@@ -2,7 +2,6 @@ import React from 'react';
 import { TouchableOpacity, StyleSheet, Image} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
-import RNRestart from 'react-native-restart';
 
 
 const CartButton = () => {
